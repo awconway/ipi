@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/debian
+{
+	"name": "python3.9, quarto, cuda and R4.2",
+	"image": "mcr.microsoft.com/devcontainers/python:3.9",
+// Configure tool-specific properties.
+"customizations": {
+	// Configure properties specific to VS Code.
+	"vscode": {		
+		// Add the IDs of extensions you want installed when the container is created.
+		"extensions": [
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"ritwickdey.LiveServer",
+			"rsip-vision.nvidia-smi-plus",
+			"reditorsupport.r",
+			"quarto.quarto"
+		]
+	}
+},
+		"runArgs": ["--gpus", "all"],
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"features": {
+		"ghcr.io/devcontainers/features/nvidia-cuda:1": {
+			"installCudnn": true
+		},
+		"ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+            "version": "4.2",
+            "vscodeRSupport": "full",
+            "installDevTools": true,
+			"installRMarkdown": true,
+			"installRadian": true,
+			"installJupyterlab": true
+        },
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
+            "version": "prerelease"
+        },
+	},
+}

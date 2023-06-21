@@ -1,2 +1,8 @@
 ._*
 .DS_Store
+Monitor/
+data/
+csv_data/
+iPad/
+_targets
+test.qmd
