@@ -1,0 +1,351 @@
+---
+title: Integrated Pulmonary Index during procedural sedation and analgesia
+subtitle: A cluster-randomized trial
+format:
+    clean-revealjs:
+        
+        css: ["css/all.css"]
+author:
+  - name: Aaron Conway
+    affiliations: Peter Munk Cardiac Centre, UHN & University of Toronto
+  - name: Mohammad Goudarzi Rad
+    affiliations: Peter Munk Cardiac Centre, UHN & University of Toronto
+  - name: Sebastian Mafeld
+    affiliations: Joint Department of Medical Imaging, UHN & University of Toronto
+  - name: Matteo Parotto
+    affiliations: Department of Anesthesiology and Pain Medicine, UHN & Interdepartmental Division of Critical Care Medicine, University of Toronto
+date: last-modified
+---
+
+```{r setup, echo=FALSE}
+library(targets)
+tar_config_set(store = "../_targets")
+library(tidyverse)
+
+tar_load(c(
+  zinb_nb_effects,
+zinb_summary, zinb_zero_effects, zinb_nb_effects_duration, zinb_zero_effects_duration, zinb_summary_duration,
+zinb_summary_app_alarms,
+zinb_nb_effects_app_alarms,
+zinb_zero_effects_app_alarms,
+zinb_summary_inapp_alarms,
+zinb_nb_effects_inapp_alarms,
+zinb_zero_effects_inapp_alarms,
+adverse_events_model,
+  zinb_nb_effects_spo2_auc,
+  zinb_nb_effects_inapp_alarms,
+  icc,
+  icc_alarm_duration,
+  icc_spo2_auc,
+  icc_app_alarms,
+  icc_inapp_alarms
+
+))
+options(digits=2)
+```
+
+
+
+## Procedural sedation is very safe and highly effective {.center}
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+## Using capnography for respiratory monitoring during sedation can provide an extra layer of safety  {.center}
+
+## The Canadian Anesthesiologists’ Society’s position statement recommends that capnography should be available wherever moderate or deep sedation is used. {.center}
+
+## CAS guidelines do not provide specific recommendations for *how* capnography should be implemented for nurse-administered sedation {.center}
+
+# Alarm management <i class="fad fa-bell"></i> {background-color="#2196f3"}
+
+## Capnography is a very sensitive device so we need to ensure the alarm conditions set will not disrupt procedures unnecessarily {.center}
+
+## Every alarm that gets triggered from a capnography monitor during a procedure should be important enough to trigger an intervention {.center}
+
+## The intervention should be initiated as soon as possible after the alarm is triggered {.center}
+
+# Optimizing alarm conditions for capnography {background-color="#2196f3"}
+
+## The Integrated Pulmonary Index is a ‘smart alarm’ that shows promise as a tool to assist the implementation of capnography for sedation  {.center}
+
+##  Integrated pulmonary index
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Index of physiological parameters related to the assessment of respiratory function (etCO<sub>2</sub>, SpO<sub>2</sub>, RR, HR) based on a fuzzy-logic inference model
+:::
+::: {.column width="50%"}
+![](figure2.png)
+:::
+::::
+
+## Simplifies the interpretation of respiratory monitoring by assigning clinical responses for given scores {.center}
+
+## Shows promise as a strategy to optimize the implementation of capnography for respiratory monitoring during nurse-administered sedation {.center}
+
+## Aim is to determine if using the Integrated Pulmonary Index is an effective way to implement capnography during nurse-administered sedation. {.center}
+
+# The study {background-color="#2196f3"}
+
+## Parallel cluster randomized trial design
+Nurses who choose to participate will be randomized to:
+
+<i class="fad fa-random "></i> Capnography *with* IPI
+
+<i class="fad fa-random "></i> Capnography *without* IPI
+
+## {.center}
+
+
+<div class="flex justify-between">
+<!-- Establishment -->
+<div class="bg-blue-200 p-8 rounded-lg shadow-md">
+<h2 class="text-xl font-bold">Establishment</h2>
+<p class="mt-2"><i class="fad fa-clock"></i> 2 months</p>
+</div>
+<!-- Stability -->
+<div class="bg-yellow-200 p-8 rounded-lg shadow-md">
+<h2 class="text-xl font-bold">Stability</h2>
+<p class="mt-2"><i class="fad fa-clock"></i> 2 months</p>
+</div>
+<!-- Evaluation -->
+<div class="bg-green-200 p-8 rounded-lg shadow-md">
+<h2 class="text-xl font-bold">Evaluation</h2>
+<p class="mt-2"><i class="fad fa-clock"></i> 8 months</p>
+</div>
+</div>
+
+## Establishment period
+
+- Start using the Capnostream 35p devices
+- Comprehensive education to nursing staff
+- Invited nurses to take part in the randomized controlled trial
+
+
+## Stability period
+
+### Goal was to optimize the alarm conditions
+
+Audit and [feedback](https://capnofeedback.gatsbyjs.io) process to evaluate the performance characteristics of the capnography alarms:
+
+- Alarm burden (total number of alarms triggered).
+- Number of appropriate alarms (defined as an alarm that triggered an intervention).
+- Number of inappropriate alarms (defined as alarms that were triggered but manually dismissed by silencing the alarm).
+- Duration of alert conditions (defined as the total time that an alert condition was active).
+
+---
+
+::: {.center}
+
+<h2>
+    <ul class="fa-ul">
+    <li style="list-style-type: none;">
+        <span class="fa-li">
+            <i class="fad fa-quote-left">
+            </i>
+        </span>
+        Performance characteristics of alerts should be evaluated after implementation and that clinicians should revise alerts based on the performance characteristics.
+    </li>
+    </ul>
+</h2>
+
+>The Society for Critical Care Medicine Alarm and Alert Fatigue Task Force
+
+:::
+
+## Audit and feedback processes are commonly used and can improve practice. {.center}
+
+## Evaluation period
+
+Alarm performance was compared between nurses randomized to use IPI with those who were not.
+
+- Number of seconds in an alert condition state without an intervention being applied.
+- Alarm burden (total number of alarms).
+- Number of appropriate alarms.
+- Number of inappropriate alarms.
+- Total duration of alert conditions (inclusive of the time to an intervention *and* the time until the alert conditions are resolved).
+
+## Primary outcome {.smaller}
+
+### Number of seconds in an alert condition state without an intervention being applied
+
+- Scored as zero if a patient did not have any alarms during the procedure
+- Used a mixed effects model that accounted for the large number of zero scores, being the zero-inflated negative binomial mixed effects model
+- The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with, and a negative binomial model for the count process
+- Fixed effect in the model was the randomization and the random effect was the cluster
+
+## Secondary outcomes {.smaller}
+
+- Alarm burden (total number of Medtronic Capnostream 35p monitor alarms).
+- Number of appropriate alarms (defined as an alarm that triggered an intervention).
+- Number of inappropriate alarms (defined as alarms that were triggered but manually dismissed by silencing the alarm).
+- Total duration of alert conditions (defined as the total time that an alert condition was active inclusive of the time to an intervention and the time until the alert conditions are resolved).
+- TROOPS adverse sedation events.
+- Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold.
+
+
+# Results <i class="fad fa-chart-scatter"></i> {background-color="#2196f3"}
+
+##
+
+![CONSORT diagram - Data collection for this study took place from June 2022 to June 2023](consort-diagram.png)
+
+::: {.center}
+
+## Sample
+
+```{r}
+targets::tar_read(summary_table)|> gtsummary::remove_row_type("procedure", type="all")
+```
+
+:::
+
+::: {.center}
+
+## Alarm settings used by nurses during the study
+
+```{r}
+
+# create the data frame
+df <- data.frame(
+  Parameter = c("Pulse rate", "Respiratory rate", "End-tidal carbon dioxide", "Oxygen saturation", "No breath detected", "Integrated pulmonary index"),
+  `Lower threshold` = c("40 beats per minute", "6 breaths per minute", "8 mmHg", "90%", "30 seconds", "4"),
+  `Upper threshold` = c("120 beats per minute", "50 breaths per minute", "60 mmHg", "", "", "")
+)
+
+library(gt)
+
+# Create the gt table
+gt(df) |>
+#   change column headers to Lower threshold and Upper threshold
+#   change the column headers
+    cols_label(
+        `Lower.threshold` = "Lower threshold",
+        `Upper.threshold` = "Upper threshold"
+    )
+```
+
+:::
+
+
+## Primary outcome
+
+### No difference between groups (IRR `r zinb_nb_effects[4]`; 95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`)
+
+![](primary.svg){.quarto-figure-center}
+
+::: {.center}
+
+## Alarm-related secondary outcomes
+
+
+```{r}
+
+df  <- tibble::tribble(
+  ~`Outcome`, ~`IRR`, ~`NB_95% CI`, ~`NB_p-value`,~`OR`, ~`95% CI`, ~`p-value`, ~`ICC`,
+
+  "Total alarm duration", zinb_nb_effects_duration[4], paste0(round(zinb_nb_effects_duration[2], 2), " to ", round(zinb_nb_effects_duration[6], 2)), zinb_summary_duration$coef_table[2,4], zinb_zero_effects_duration[4], paste0(round(zinb_zero_effects_duration[2], 2), " to ", round(zinb_zero_effects_duration[6], 2)), zinb_summary_duration$coef_table_zi[2,4],  as.character(round(icc_alarm_duration, 2)),
+
+  "Number of appropriate alarms", zinb_nb_effects_app_alarms[4], paste0(round(zinb_nb_effects_app_alarms[2], 2), " to ", round(zinb_nb_effects_app_alarms[6], 2)), zinb_summary_app_alarms$coef_table[2,4], zinb_zero_effects_app_alarms[4], paste0(round(zinb_zero_effects_app_alarms[2], 2), " to ", round(zinb_zero_effects_app_alarms[6], 2)), zinb_summary_app_alarms$coef_table_zi[2,4],  if_else(icc_inapp_alarms < 0.01, "<0.01", as.character(round(icc_app_alarms, 2))),
+
+  "Number of inappropriate alarms", zinb_nb_effects_inapp_alarms[4], paste0(round(zinb_nb_effects_inapp_alarms[2], 2), " to ", round(zinb_nb_effects_inapp_alarms[6], 2)), zinb_summary_inapp_alarms$coef_table[2,4], zinb_zero_effects_inapp_alarms[4], paste0(round(zinb_zero_effects_inapp_alarms[2], 2), " to ", round(zinb_zero_effects_inapp_alarms[6], 2)), zinb_summary_inapp_alarms$coef_table_zi[2,4], if_else(icc_inapp_alarms < 0.01, "<0.01", as.character(round(icc_inapp_alarms, 2)))
+  )
+
+flextable::flextable(df) |>
+  flextable::add_header_row(
+    values = c("","Negative binomial component", "Zero component", ""),
+    colwidths = c(1,3, 3,1)) |>
+  flextable::align(i = 1, j = NULL, align = "center", part = "header") |>
+  flextable::set_header_labels(`NB_p-value` = "p-value", `NB_95% CI` = "95% CI") |>
+  flextable::set_table_properties(layout = "autofit") |>
+  flextable::add_footer_row(
+    values = c("OR = Odds ratio; IRR = Incidence rate ratio; ICC = Intra-cluster correlation"),
+    colwidths = c(8)
+    )
+  # flextable::align(i = 1, j = NULL, align = "center", part = "footer")
+
+```
+
+
+:::
+
+## Area under the SpO~2~ 90% curve
+
+### Lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`)
+
+![](spo2.svg){.quarto-figure-center}
+
+## Adverse events {.smaller}
+
+- There was one intermediate severity respiratory adverse event observed in the IPI disabled group.
+- There were two intermediate-severity adverse events related to sedation quality in the IPI enabled group.
+- The remaining 13 adverse events were minor severity related to breathing where oxygen desaturation was addressed with minor interventions.
+- There were no serious adverse events observed in either group.
+- The odds ratio for the occurrence of an adverse event in the IPI enabled group compared to the IPI disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`).
+
+# Discussion <i class="fad fa-lightbulb-exclamation"></i> {background-color="#2196f3"}
+
+## We found that the use of the Integrated Patient Index did not reduce the number of seconds that alarms were triggered without intervention. {.center}
+
+### Therefore, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index help to lower the threshold for intervention by nurses.
+
+## Although we didn't specify thresholds in the protocol, nurses did not change alarm settings during the evaluation period. {.center}
+
+### In effect, this was a comparison of IPI at a threshold of 4 versus no IPI. It is possible that results would differ at a lower IPI threshold.
+
+## Although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve {.center}
+
+### It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management
+
+## The total doses of sedative and analgesic medication for many patients was small (median 1mg midazolam and 50-75mcg fentanyl) {.center}
+
+###  May not be relevant to situations where higher doses of sedative and analgesic medication are used (higher number of alarms)
+
+## The cluster design (by nurses) was a very efficient way to conduct this study {.center}
+
+### Only possible due to the hybrid implementation-effectiveness design
+
+## Further exploratory analyses are possible with the data collected in this study {.center}
+
+<ul class="fa-ul text-[#2196f3]">
+<li style="list-style-type: none;">
+    <span class="fa-li">
+        <i class="fad fa-chevron-right">
+        </i>
+    </span>
+    More detailed temporal exploration of types of interventions and alarm conditions
+</li>
+<li style="list-style-type: none;">
+    <span class="fa-li">
+        <i class="fad fa-chevron-right">
+        </i>
+    </span>
+    Exploring relationships between alarm conditions and adverse events
+</li>
+<li style="list-style-type: none;">
+    <span class="fa-li">
+        <i class="fad fa-chevron-right">
+        </i>
+    </span>
+    Dataset can be used for external validation of capnography waveform classification algorithms
+</li>
+</ul>
+
+
+
+## Limitations
+
+- There was a smaller number of clusters included than we had planned due to the restricted number of sites available at the time of data collection.
+- The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.
+- It is therefore possible that the final sample size for this study was too small to detect a statistically significant difference between groups for the primary outcome.
+- The research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.
+
+# Conclusion <i class="fad fa-clipboard-check"></i> {background-color="#2196f3"}
+
+## Enabling the Integrated Pulmonary Index did not lower the time taken by nurses to intervene after an alarm was triggered by the Capnostream monitor {.center}
+
+### Potential of improved safety with lower severity of oxygen desaturation in the IPI-enabled group
+
+
+# Questions <i class="fad fa-question"></i> {background-color="#2196f3"}
