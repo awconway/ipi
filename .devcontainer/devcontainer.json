@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/debian
 {
-	"name": "python3.9, quarto, cuda and R4.2",
+	"name": "python3.9, quarto and R4.2",
 	"image": "mcr.microsoft.com/devcontainers/python:3.9",
 // Configure tool-specific properties.
 "customizations": {
@@ -18,12 +18,8 @@
 		]
 	}
 },
-		"runArgs": ["--gpus", "all"],
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"features": {
-		"ghcr.io/devcontainers/features/nvidia-cuda:1": {
-			"installCudnn": true
-		},
 		"ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
             "version": "4.2",
             "vscodeRSupport": "full",
