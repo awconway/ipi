@@ -66,7 +66,6 @@ options(digits=2)
 
 # Optimizing alarm conditions for capnography {background-color="#2196f3"}
 
-## The Integrated Pulmonary Index is a ‘smart alarm’ that shows promise as a tool to assist the implementation of capnography for sedation  {.center}
 
 ##  Integrated pulmonary index
 
@@ -88,16 +87,25 @@ Index of physiological parameters related to the assessment of respiratory funct
 
 # The study {background-color="#2196f3"}
 
-## Parallel cluster randomized trial design
-Nurses who choose to participate will be randomized to:
+
+## Hybrid implementation-effectiveness cluster randomized trial design { style="text-align: center"}
+
+- evidence for the safety and efficacy of using capnography exists
+- implementation of this monitoring device for sedation is recommended in clinical guidelines
+
+
+Nurses who choose to participate were randomized to:
 
 <i class="fad fa-random "></i> Capnography *with* IPI
 
 <i class="fad fa-random "></i> Capnography *without* IPI
 
-## {.center}
 
+## Hybrid implementation-effectiveness cluster randomized trial design { style="text-align: center"}
 
+<br>
+<br>
+<br>
 <div class="flex justify-between">
 <!-- Establishment -->
 <div class="bg-blue-200 p-8 rounded-lg shadow-md">
@@ -119,7 +127,7 @@ Nurses who choose to participate will be randomized to:
 ## Establishment period
 
 - Start using the Capnostream 35p devices
-- Comprehensive education to nursing staff
+- Education to nursing staff
 - Invited nurses to take part in the randomized controlled trial
 
 
@@ -133,6 +141,10 @@ Audit and [feedback](https://capnofeedback.gatsbyjs.io) process to evaluate the 
 - Number of appropriate alarms (defined as an alarm that triggered an intervention).
 - Number of inappropriate alarms (defined as alarms that were triggered but manually dismissed by silencing the alarm).
 - Duration of alert conditions (defined as the total time that an alert condition was active).
+
+---
+
+![](alarm-burden.png){.quarto-figure-center}
 
 ---
 
@@ -156,15 +168,10 @@ Audit and [feedback](https://capnofeedback.gatsbyjs.io) process to evaluate the 
 
 ## Audit and feedback processes are commonly used and can improve practice. {.center}
 
-## Evaluation period
+## Evaluation period {.center}
 
-Alarm performance was compared between nurses randomized to use IPI with those who were not.
+### Alarm performance was compared between nurses randomized to use IPI with those who were not.
 
-- Number of seconds in an alert condition state without an intervention being applied.
-- Alarm burden (total number of alarms).
-- Number of appropriate alarms.
-- Number of inappropriate alarms.
-- Total duration of alert conditions (inclusive of the time to an intervention *and* the time until the alert conditions are resolved).
 
 ## Primary outcome {.smaller}
 
@@ -336,16 +343,16 @@ flextable::flextable(df) |>
 
 ## Limitations
 
-- There was a smaller number of clusters included than we had planned due to the restricted number of sites available at the time of data collection.
-- The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.
-- It is therefore possible that the final sample size for this study was too small to detect a statistically significant difference between groups for the primary outcome.
+- Imprecision may be a concern, arising from the fact that:
+  - a smaller number of clusters were included than we estimated for the sample size calculation due to the restricted number of sites available at the time of data collection.
+  - The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.
 - The research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.
 
 # Conclusion <i class="fad fa-clipboard-check"></i> {background-color="#2196f3"}
 
 ## Enabling the Integrated Pulmonary Index did not lower the time taken by nurses to intervene after an alarm was triggered by the Capnostream monitor {.center}
 
-### Potential of improved safety with lower severity of oxygen desaturation in the IPI-enabled group
+### Potential of improved safety with lower severity of oxygen desaturation in the IPI-enabled group (unclear if the difference is clinically significant)
 
 
 # Questions <i class="fad fa-question"></i> {background-color="#2196f3"}

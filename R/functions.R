@@ -225,6 +225,10 @@ appropriate_alarms <- function() {
         rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled", outcome = 0))
 
 }
+
+# I think instead I need to first chunk into rows of alarm periods and check if there was an intervention
+# before or after the alarm was silenced. But how long after the alarm is silenced should I check if there
+# was an intervention?
 inappropriate_alarms <- function() {
     ds <- open_dataset("data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list
