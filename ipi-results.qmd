@@ -75,7 +75,6 @@ adverse_events_model,
 options(digits=2)
 ```
 
-
 # Abstract
 
 {{< pagebreak >}}
@@ -84,43 +83,44 @@ options(digits=2)
 
 This study was registered at ClinicalTrials.gov (ID: NCT05068700)
 
-
 # Introduction
 
-Nurses must analyze and integrate information from multiple different individual parameters to make an assessment of respiratory status while monitoring patients who have received nurse-administered procedural sedation [@Conway_2013]. The Integrated Pulmonary Index is a "smart alarm" that shows promise as a tool to assist clinician's with the process of respiratory assessment. It is a mathematically-derived index based on a fuzzy-logic inference model, which combines physiological parameters related to respiratory function, such as end-tidal carbon dioxide, oxygen saturation, respiration rate, and heart rate [@Ronen_2016]. By assigning clinical responses to specific Integrated Pulmonary Index scores, it simplifies the interpretation of continuous oxygenation and ventilation monitoring. Specifically, it aims to reduce the cognitive load of synthesizing multiple sources of physiological monitoring data and lower the threshold for intervention by clinicians to support respiration.  An Integrated Pulmonary Index score of four had over 90% sensitivity and specificity for detecting clinically significant events in a clinical validation study [@Ronen_2016]. This study aimed to determine whether using the Integrated Pulmonary Index during nurse-administered sedation achieves the intended effect of reducing the threshold for intervention by measuring the time it takes for nurses to respond to capnography monitor alarms.
+The medications used for nurse-administered procedural sedation are central nervous system depressants. As such, all patients who receive nurse-administered procedural sedation are at risk of respiratory depression. Nurses must continually analyze and integrate information from multiple different individual parameters to make an assessment of respiratory status [@Conway_2013]. The Integrated Pulmonary Index (IPI) is a smart alarm that can be enabled in some models of capnography monitors, which shows promise as a tool to assist clinician's with the process of respiratory assessment. It is a mathematically-derived index based on a fuzzy-logic inference model, which combines physiological parameters related to respiratory function, such as end-tidal carbon dioxide, oxygen saturation, respiration rate, and heart rate [@Ronen_2016]. By assigning clinical responses to specific Integrated Pulmonary Index scores, it simplifies the interpretation of continuous oxygenation and ventilation monitoring. Specifically, it aims to reduce the cognitive load of synthesizing multiple sources of physiological monitoring data and lower the threshold for intervention by clinicians to support respiration. An Integrated Pulmonary Index score of four had over 90% sensitivity and specificity for detecting clinically significant events in a clinical validation study [@Ronen_2016].
 
-<!-- # Background -->
+# Background
+
+The IPI has been evaluated in a number of different studies across multiple clinical settings, including the intensive care unit [@Kaur2021], emergency department[@Gurlu2022; @Karaarslan2023] and post-operative recovery [@kuroe2021integrated]. For the procedural sedation context specifically, observational studies have confirmed that the IPI ... There has also been two randomized trials that compared the IPI with standard monitoring including pulse oximetry and no capnography. One of the trials, which recruited patients undergoing sedation for percutaneous endoscopic gastrostomy, found that the odds of hypoxia we increased more than 4-fold when capnography with the IPI was not used [@Michael2021]. An earlier study of patients who received sedation for interventional upper GI-endoscopy reported that there was no difference in the maximum decrease of oxygen desaturation or rates of oxygen desaturation below 90 between the comparison groups of capnography and the IPI and standard monitoring [@riphaus2017clinical]. As such, the added benefit of using the IPI over capnography has not been established. This study aimed to determine whether using the IPI during nurse-administered sedation achieves the intended effect of reducing the threshold for intervention by measuring the time it takes for nurses to respond to capnography monitor alarms.
 
 # The Study
 
-<!-- ## Aim
+## Aim
 
-The aim of this study was to evaluate the effectiveness of utilizing the Integrated Pulmonary Index for capnography implementation during sedation administered by nurses. -->
+The aim of this study was to evaluate the effectiveness of utilizing the Integrated Pulmonary Index for capnography implementation during sedation administered by nurses.
 
 ## Objectives
 
 The study aimed to determine whether enabling the Integrated Pulmonary Index during nurse-administered sedation reduced the time between the onset of a capnography monitor alarm and the initiation of an intervention. Additionally, the study investigated the effect of the Integrated Pulmonary Index on:
 
-- The total alarm burden
-- The number of appropriate alarms
-- The number of inappropriate alarms
-- The total duration of alert conditions
-- The choice of alarm settings
-- The number and severity of adverse sedation events
+-   The total alarm burden
+-   The number of appropriate alarms
+-   The number of inappropriate alarms
+-   The total duration of alert conditions
+-   The choice of alarm settings
+-   The number and severity of adverse sedation events
 
 # Methods
 
 ## Design
 
-A parallel cluster randomized trial was conducted, guided by the hybrid effectiveness-implementation approach [@Curran_2012]. The hybrid effectiveness-implementation framework was appropriate because evidence for the safety and efficacy of using capnography exists and implementation of this monitoring device for sedation is recommended in clinical guidelines [@Dobson_2018; @Conway_2013; @Conway_2014]. A detailed description of this trial was reported in the published protocol [@conway2022integrated].  Briefly, this implementation-effectiveness study involved an initial 'establishment' period, where the research team facilitated the implementation of capnography monitoring for procedures performed with sedation by providing education and assistance using the devices. All nurses in the department were permitted to use capnography, regardless of participation in the randomized controlled trial component of the study. Nurses who chose to participate in the study were randomized to either enable or disable the Integrated Pulmonary Index feature of the capnography monitor. In a subsequent 'stability' period, an audit and feedback process was undertaken, with the aim of optimizing capnography alarm conditions. Nurses either enabled or disabled the Integrated Pulmonary Index depending on randomization.  Alarm performance was compared between nurses randomized to use capnography with the Integrated Pulmonary Index enabled or disabled in the 'evaluation' period. The results of this 'evaluation' period are reported in this paper. 
+A parallel cluster randomized trial was conducted, guided by the hybrid effectiveness-implementation approach [@Curran_2012]. The hybrid effectiveness-implementation framework was appropriate because evidence for the safety and efficacy of using capnography exists and implementation of this monitoring device for sedation is recommended in clinical guidelines [@Dobson_2018; @Conway_2013; @Conway_2014]. A detailed description of this trial was reported in the published protocol [@conway2022integrated]. Briefly, this implementation-effectiveness study involved an initial 'establishment' period, where the research team facilitated the implementation of capnography monitoring for procedures performed with sedation by providing education and assistance using the devices. All nurses in the department were permitted to use capnography, regardless of participation in the randomized controlled trial component of the study. Nurses who chose to participate in the study were randomized to either enable or disable the Integrated Pulmonary Index feature of the capnography monitor. In a subsequent 'stability' period, an audit and feedback process was undertaken, with the aim of optimizing capnography alarm conditions. Nurses either enabled or disabled the Integrated Pulmonary Index depending on randomization. Alarm performance was compared between nurses randomized to use capnography with the Integrated Pulmonary Index enabled or disabled in the 'evaluation' period. The results of this 'evaluation' period are reported in this paper.
 
 ## Study Setting
 
-Participants were enrolled from the interventional radiology department at an academic hospital in Canada. We originally planned to recruit participants from other departments in the same network of hospitals. This was not possible due to changing priorities arising from significant staffing challenges in these other departments at the time of data collection.  
+Participants were enrolled from the interventional radiology department at an academic hospital in Canada. We originally planned to recruit participants from other departments in the same network of hospitals. This was not possible due to changing priorities arising from significant staffing challenges in these other departments at the time of data collection.
 
 ## Inclusion Criteria
 
-All nurses who administer and monitor sedation were eligible to be randomized. Adult patients who were scheduled to undergo elective procedures with sedation administered by the nursing staff were eligible for inclusion in the analysis. 
+All nurses who administer and monitor sedation were eligible to be randomized. Adult patients who were scheduled to undergo elective procedures with sedation administered by the nursing staff were eligible for inclusion in the analysis.
 
 ## Exclusion Criteria
 
@@ -128,12 +128,11 @@ Patients were excluded if a preference against the presence of a research assist
 
 ## Sample size calculation
 
-We used cluster randomized trial sample size calculation software to determine the sample size required for the primary outcome [@Hemming_2020]. Based on a type I error rate of 5%, and estimating that the intra-cluster correlation would be 0.02, 40 clusters with a cluster size of 10 would achieve >80% power to detect a standardized effect size of 0.3. As such, we targeted a sample size of 400 patient-participants in the evaluation period, based on estimates for the number of nurses (40) and the cluster size (10).
+We used cluster randomized trial sample size calculation software to determine the sample size required for the primary outcome [@Hemming_2020]. Based on a type I error rate of 5%, and estimating that the intra-cluster correlation would be 0.02, 40 clusters with a cluster size of 10 would achieve \>80% power to detect a standardized effect size of 0.3. As such, we targeted a sample size of 400 patient-participants in the evaluation period, based on estimates for the number of nurses (40) and the cluster size (10).
 
 ## Randomization
 
 Concealed random allocation of nurses to either enable or disable the Integrated Pulmonary Index was undertaken. The redcapAPI package in R was used to upload a stratified (by department) randomized sequence to REDCap^TM^. The research assistant retrieved the allocation from REDCAP^TM^ for each consecutive nurse who choose to participate.
-
 
 ## Study interventions
 
@@ -149,12 +148,12 @@ The period between the initial sedative medication administration and the comple
 
 The secondary outcomes for the study were the following:
 
-- Alarm burden (total number of Medtronic Capnostream 35p monitor alarms).
-- Number of appropriate alarms (defined as an alarm that triggered an intervention).
-- Number of inappropriate alarms (defined as alarms that were triggered but manually dismissed by silencing the alarm).
-- Total duration of alert conditions (defined as the total time that an alert condition was active inclusive of the time to an intervention and the time until the alert conditions are resolved).
-- TROOPS adverse sedation events [@Roback_2018].
-- Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold.
+-   Alarm burden (total number of Medtronic Capnostream 35p monitor alarms).
+-   Number of appropriate alarms (defined as an alarm that triggered an intervention).
+-   Number of inappropriate alarms (defined as alarms that were triggered but manually dismissed by silencing the alarm).
+-   Total duration of alert conditions (defined as the total time that an alert condition was active inclusive of the time to an intervention and the time until the alert conditions are resolved).
+-   TROOPS adverse sedation events [@Roback_2018].
+-   Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold.
 
 ## Data analysis
 
@@ -166,19 +165,17 @@ The hospital Research Ethics Board (REB) approved the trial (REB 21-5249). Addit
 
 # Results
 
+```{=html}
 <!-- interpret incidence rate ratio: 
 - https://www.torusresearch.com.au/?p=185
 - https://www.nejm.org/doi/10.1056/NEJMoa2034975
  -->
-Data collection for this study took place from June 2022 to June 2023. A total of 11 nurses chose to participate in the study and were randomized. There were 401 patients monitored by the nurses participating in the study. The flow of participants through the study is presented in Figure 1. All nurses who were randomized monitored patients with their assigned intervention and cluster sizes ranged from 7 to 69. There were two patients monitored by nurses assigned to the IPI-enabled group who did not receive the allocated intervention. The pulse oximeter functionality was not working for one participant and the capnography line malfunctioned during the procedure for the other participant. Data from 11 patients was not included in the final analysis because they did not receive sedation during their procedure. 
+```
+Data collection for this study took place from June 2022 to June 2023. A total of 11 nurses chose to participate in the study and were randomized. There were 401 patients monitored by the nurses participating in the study. The flow of participants through the study is presented in Figure 1. All nurses who were randomized monitored patients with their assigned intervention and cluster sizes ranged from 7 to 69. There were two patients monitored by nurses assigned to the IPI-enabled group who did not receive the allocated intervention. The pulse oximeter was not working for one participant and the capnography line malfunctioned during the procedure for the other participant. Data from 11 patients was not included in the final analysis because they did not receive sedation during their procedure.
 
 ## Sample characteristics
 
-A summary of characteristics for patients included in the analysis is provided in Table 1. 
-Demographic data about nurse participants was not collected. 
-Patients received small doses of midazolam and fentanyl for a variety of different radiology procedures, with an average duration of 30 minutes. 
-Oxygen supplementation was delivered for most patients using nasal cannula. 
-Nurses participating in the study elected to use the default settings displayed in Table 2 for all patients they monitored. 
+A summary of characteristics for patients included in the analysis is provided in Table 1. Demographic data about nurse participants was not collected. Patients received small doses of midazolam and fentanyl for a variety of different radiology procedures, with an average duration of 30 minutes. Oxygen supplementation was delivered for most patients using nasal cannula. Nurses participating in the study elected to use the default settings displayed in Table 2 for all patients they monitored.
 
 ## Alarm performance
 
@@ -186,34 +183,32 @@ A summary of results for both components of the zero-inflated negative binomial 
 
 ## Clinical outcomes
 
- As can be seen in Figure 3A, desaturation events were not common in either group. Figure 3B shows the area under the SpO~2~ 90% desaturation curve scores for participants who had a desaturation event, which were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`). There was one intermediate severity respiratory adverse event observed in the IPI disabled group. There were two intermediate-severity adverse events related to sedation quality in the IPI enabled group. The remaining 13 adverse events were minor severity related to breathing where oxygen desaturation was addressed with minor interventions. There were no serious adverse events observed in either group. The odds ratio for the occurrence of an adverse event in the IPI enabled group compared to the IPI disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`).
+As can be seen in Figure 3A, desaturation events were not common in either group. Figure 3B shows the area under the SpO~2~ 90% desaturation curve scores for participants who had a desaturation event, which were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`). There was one intermediate severity respiratory adverse event observed in the IPI disabled group. There were two intermediate-severity adverse events related to sedation quality in the IPI enabled group. The remaining 13 adverse events were minor severity related to breathing where oxygen desaturation was addressed with minor interventions. There were no serious adverse events observed in either group. The odds ratio for the occurrence of an adverse event in the IPI enabled group compared to the IPI disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`).
 
 # Discussion
 
-This study aimed to investigate the impact of an Integrated Patient Index on alarm performance during nurse-administered sedation that was used for radiology procedures. We found that the use of the Integrated Patient Index did not reduce the number of seconds that alarms were triggered without intervention. As such, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index will help to lower the threshold for intervention by clinicians.
+This study aimed to investigate the impact of an Integrated Patient Index on alarm performance during nurse-administered sedation procedural sedation. We found that the use of the Integrated Patient Index did not reduce the number of seconds that alarms were triggered without intervention. As such, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index will help to lower the threshold for intervention by clinicians.
 
-Secondary outcomes revealed some insights that require further investigation. Of primary interest, although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve. This outcome comprises an assessment of both the length and severity of an oxygen desaturation event, which has been used in multiple different studies in procedural sedation [@]. It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management. A previous randomized controlled trial that compared the use of IPI-enabled capnography monitoring with no capnography during deep sedation for interventional endoscopy found no difference in the average decrease in oxygen saturation [@riphaus2017clinical]. The discrepant results between this study and the previous study may be due to the different patient populations and sedation protocols. The previous study included patients who received propofol, which certainly has a more pronounced impact on respiratory function compared with the small doses of midazolam and fentanyl used in the present study [@riphaus2017clinical]. 
+Secondary outcomes revealed some insights that require further investigation. Of primary interest, although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve. This outcome comprises an assessment of both the length and severity of an oxygen desaturation event, which has been used in multiple different studies in procedural sedation [@van2021; @Conway2021; @Niklewski2014]. It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management. A previous randomized controlled trial that compared the use of IPI-enabled capnography monitoring with no capnography during deep sedation for interventional endoscopy found no difference in the average decrease in oxygen saturation [@riphaus2017clinical]. The discrepant results between this study and the previous study may be due to the different patient populations and sedation protocols. The previous study included patients who received propofol, which certainly has a more pronounced impact on respiratory function compared with the small doses of midazolam and fentanyl used in the present study [@riphaus2017clinical]. In a different clinical setting, there was evidence that using the IPI decreased the duration of respiratory events [@Broens2021]. A randomized trial that evaluated the use of the IPI for overnight monitoring of post-operative patients who received opioids found that the duration of low IPI events was reduced in comparison to standard monitoring [@Broens2021], which, similar to our trial, suggests that nurses' responses to IPI alarms may increase safety.
 
 The total doses of sedative and analgesic medication for many patients was small, with a median dose of only 1mg for midazolam and 50-75mcg for fentanyl. It is unclear if different results would be observed if there was a larger dose of sedative and analgesic medication administered, which likely would also be associated with a higher number of alarms. Application of results from this study should therefore be limited to procedures where a small dose of sedative and analgesic medication are used. These doses are likely typical of many settings that use nurse-administered sedation [@Conway_2014]. Importantly, there was no systematic difference in the doses of sedative and analgesic medication administered between groups, which suggests that the results are not confounded by differences in the sedation protocol or degree of sedation induced.
 
 Previous research that has compared default with modified alarm management strategies have applied a prescriptive approach where the modified alarm trigger conditions were decided for the whole department rather than for individual nurses [@allan2017data; @cvach2015effect]. Another study used a different approach to communicate alarm performance over time with the aim to induce changes to default alarm settings [@ruppel2018testing].
 
-
+```{=html}
 <!-- Nurses did not choose to alter thresholds for alarms despite  efforts to encourage optimization of alarm settings for the context. Previous research that has compared default with modified alarm management strategies have applied a more prescriptive approach where the modified alarm trigger conditions were decided for the whole department rather than for individual nurses [@allan2017data; @cvach2015effect]. Another study used a different approach to communicate alarm performance over time with the aim to induce changes to default alarm settings [@ruppel2018testing].
 
 Possible that the broader culture and context in the department that this study was conducted impacted the nurses' decision-making about adjusting the alarm settings. Previous research has shown that attitudes towards alarm management across the department can influence the alarm management practices of individual nurses [@ruppel2019critical]. -->
-
-
+```
 <!-- Makes sense that there were no differences in the zero part because we should not expect that being randomized to ipi enabled or disabled would have any effect when no alarms occurred.  -->
 
 ## Limitations
 
-There was a smaller number of clusters included than we had planned due to the restricted number of sites available at the time of data collection. In addition, the intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation. It is therefore possible that the final sample size for this study was too small to detect a statistically significant difference between groups for the primary outcome. Nurses were not blinded to assigned allocation due to the nature of the intervention being an alarm management strategy. Likewise, the research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device. 
+There was a smaller number of clusters included than we had planned due to the restricted number of sites available at the time of data collection. In addition, the intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation. It is therefore possible that the final sample size for this study was too small to detect a statistically significant difference between groups for the primary outcome. Nurses were not blinded to assigned allocation due to the nature of the intervention being an alarm management strategy. Likewise, the research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.
 
 ## Conclusion
 
 Enabling the Integrated Patient Index during nurse-administered procedural sedation for interventional radiology procedures did not reduce the number of seconds that alarms were triggered without intervention. Therefore, integrating multiple physiological parameters related to respiratory assessment into a single index did not lower the threshold for intervention by nurses.
-
 
 {{< pagebreak >}}
 
@@ -224,7 +219,6 @@ Enabling the Integrated Patient Index during nurse-administered procedural sedat
 
 <!-- ::: landscape -->
 
-
 <!-- ::: -->
 
 {{< pagebreak >}}
@@ -233,7 +227,6 @@ Enabling the Integrated Patient Index during nurse-administered procedural sedat
 #| tbl-cap: Table 1. Sample characteristics
 targets::tar_read(summary_table)
 ```
-
 
 {{< pagebreak >}}
 
