@@ -131,8 +131,8 @@ clean_files <- function(file) {
   pt <- monitor_data$id[1]
 
 
-  if (!dir.exists("data")) {
-    dir.create("data")
+  if (!dir.exists("monitor_data")) {
+    dir.create("monitor_data")
   }
   if (!dir.exists(paste0("data/", pt))) {
     dir.create(paste0("data/", pt))

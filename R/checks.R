@@ -4,7 +4,7 @@
 library(readxl)
 
 # Set path to directory containing Excel files
-path <- "iPad"
+path <- "observation_data"
 
 # Get list of Excel files in directory
 excel_files <- list.files(path = path, pattern = "*.xlsx", full.names = TRUE)
@@ -26,7 +26,7 @@ for (file in excel_files) {
 # Checks which files have sync times that are not on the same day and not within 5 minutes of each other
 
 # Set path to directory containing Excel files
-path <- "iPad"
+path <- "observation_data"
 
 # Get list of Excel files in directory
 excel_files <- list.files(path = path, pattern = "*.xlsx", full.names = TRUE)
@@ -65,7 +65,7 @@ for (file in excel_files) {
 library(readxl)
 
 # Set path to directory containing Excel files
-path <- "iPad"
+path <- "observation_data"
 
 # Get list of Excel files in directory
 excel_files <- list.files(path = path, pattern = "*.xlsx", full.names = TRUE)
@@ -88,7 +88,7 @@ for (file in excel_files) {
 # Checks which files have more than one intervention
 
 # Set path to directory containing Excel files
-path <- "iPad"
+path <- "observation_data"
 
 # Get list of Excel files in directory
 excel_files <- list.files(path = path, pattern = "*.xlsx", full.names = TRUE)
@@ -109,7 +109,7 @@ for (file in excel_files) {
 # Checks which files have more than one troops event
 
 # Set path to directory containing Excel files
-path <- "iPad"
+path <- "observation_data"
 
 # Get list of Excel files in directory
 excel_files <- list.files(path = path, pattern = "*.xlsx", full.names = TRUE)

@@ -1,6 +1,6 @@
 apply_exclusions <- function() {
     data <- list.files(
-        path = "iPad",
+        path = "observation_data",
         pattern = "*.xlsx",
         full.names = TRUE
     ) |>
@@ -13,9 +13,9 @@ apply_exclusions <- function() {
         pull(patient)
 }
 make_summary_table <- function(randomization, exclusions) {
-    ds <- open_dataset("data", format = "parquet", hive = TRUE)
+    ds <- open_dataset("monitor_data", format = "parquet", hive = TRUE)
     data <- list.files(
-        path = "iPad",
+        path = "observation_data",
         pattern = "*.xlsx",
         full.names = TRUE
     ) |>
@@ -25,7 +25,7 @@ make_summary_table <- function(randomization, exclusions) {
         filter(!patient %in% exclusions)
 
     nurse_data <- list.files(
-        path = "iPad",
+        path = "observation_data",
         pattern = "*.xlsx",
         full.names = TRUE
     ) |>
@@ -84,7 +84,7 @@ make_summary_table <- function(randomization, exclusions) {
 
 get_adverse_events <- function() {
     data <- list.files(
-        path = "iPad",
+        path = "observation_data",
         pattern = "*.xlsx",
         full.names = TRUE
     ) |>
@@ -367,7 +367,7 @@ get_adverse_events_df <- function() {
         collect()
 
     data <- list.files(
-        path = "iPad",
+        path = "observation_data",
         pattern = "*.xlsx",
         full.names = TRUE
     ) |>
