@@ -8,7 +8,9 @@ apply_exclusions <- function() {
         bind_rows()
     data |>
         select(patient, totalMidaz, totalOtherSedation, totalFent, procedure) |>
-        filter((totalMidaz == 0 | is.na(totalMidaz)) & is.na(totalOtherSedation)) |>
+        filter(
+            (totalMidaz == 0 | is.na(totalMidaz)) & is.na(totalOtherSedation)
+        ) |>
         filter(patient != "E02") |> # sedation received but dose missing
         pull(patient)
 }
@@ -42,14 +44,33 @@ make_summary_table <- function(randomization, exclusions) {
         select(nurse, id) |>
         right_join(nurse_data, by = "nurse") |>
         # E13 and E14 not in ds because missing the data from capnostream
-        rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled")) |>
-        rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled"))
+        rbind(
+            data.frame(
+                nurse = "N09", id = "E13", randomization = "IPI disabled"
+            )
+        ) |>
+        rbind(
+            data.frame(
+                nurse = "N09", id = "E14", randomization = "IPI disabled"
+            )
+        )
 
     data |>
         mutate(duration = mdy_hms(caseEnd) - mdy_hms(caseStart)) |>
         full_join(rand, by = c("patient" = "id")) |>
-        filter(!patient %in% exclusions) |> # filter to exclude patients not in exclusion list
-        select(age, sex, totalMidaz, totalFent, oxygenDevice, duration, randomization, procedure) |>
+        filter(
+            !patient %in% exclusions
+        ) |> # filter to exclude patients not in exclusion list
+        select(
+            age,
+            sex,
+            totalMidaz,
+            totalFent,
+            oxygenDevice,
+            duration,
+            randomization,
+            procedure
+        ) |>
         mutate(procedure = case_when(
             grepl("tube", procedure, ignore.case = TRUE) ~ "Gastric tube",
             grepl("fistula", procedure, ignore.case = TRUE) ~ "Fistula",
@@ -89,8 +110,13 @@ get_adverse_events <- function() {
         full.names = TRUE
     ) |>
         lapply(function(file) {
-            df <- read_excel(file, sheet = "Adverse events", col_types = rep("text", 11))
-            df$id <- file_path_sans_ext(basename(file)) # Remove extension from filename
+            df <- read_excel(
+                file,
+                sheet = "Adverse events",
+                col_types = rep("text", 11)
+            )
+            # Remove extension from filename
+            df$id <- file_path_sans_ext(basename(file))
             return(df)
         }) |>
         bind_rows()
@@ -98,7 +124,7 @@ get_adverse_events <- function() {
 
 
 primary_outcome <- function() {
-    ds <- open_dataset("data/", format = "parquet", hive = TRUE) |>
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list
         filter(!id %in% apply_exclusions())
     unitOfAnalysis <- ds |>
@@ -121,9 +147,13 @@ primary_outcome <- function() {
             TRUE ~ 0
         )) |>
         collect() |>
-        mutate(alarmStart = if_else(allAlarms == 1 & lag(allAlarms) == 0, datetime, NA)) |>
+        mutate(
+            alarmStart = if_else(allAlarms == 1 & lag(allAlarms) == 0, datetime, NA)
+        ) |>
         fill(alarmStart, .direction = "down") |>
-        mutate(alarmEnd = if_else((allAlarms == 1 & lead(allAlarms) == 0) | allAlarms == 1 & !is.na(event), datetime, NA)) |>
+        mutate(
+            alarmEnd = if_else((allAlarms == 1 & lead(allAlarms) == 0) | allAlarms == 1 & !is.na(event), datetime, NA)
+        ) |>
         filter(!is.na(alarmEnd)) |>
         filter(row_number() == 1, .by = c(alarmStart, id)) |>
         # select(id, datetime, allAlarms,alarmStart, alarmEnd, event, randomization, nurse) |>
@@ -133,17 +163,32 @@ primary_outcome <- function() {
         # select(id, outcome, randomization, nurse) |>
         right_join(unitOfAnalysis, by = c("id", "randomization", "nurse")) |>
         replace_na(list(outcome = as.duration(0))) |>
-        mutate(outcome = as.numeric(outcome), randomization = as.factor(randomization), id = as.factor(id), nurse = as.factor(nurse)) |>
+        mutate(
+            outcome = as.numeric(outcome),
+            randomization = as.factor(randomization),
+            id = as.factor(id), nurse = as.factor(nurse)
+        ) |>
         # needs to be sorted by cluster for geeglm
         arrange(nurse) |>
         select(id, randomization, nurse, outcome) |>
         # E13 and E14 not in ds because missing the data from capnostream
-        rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled", outcome = 0)) |>
-        rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled", outcome = 0))
-
+        rbind(data.frame(
+            nurse = "N09",
+            id = "E13",
+            randomization = "IPI disabled",
+            outcome = 0
+        )) |>
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E14",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        )
 }
 alarm_duration <- function() {
-    ds <- open_dataset("data/", format = "parquet", hive = TRUE) |>
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list
         filter(!id %in% apply_exclusions())
     unitOfAnalysis <- ds |>
@@ -166,7 +211,9 @@ alarm_duration <- function() {
             TRUE ~ 0
         )) |>
         collect() |>
-        mutate(alarmStart = if_else(allAlarms == 1 & lag(allAlarms) == 0, datetime, NA)) |>
+        mutate(
+            alarmStart = if_else(allAlarms == 1 & lag(allAlarms) == 0, datetime, NA)
+        ) |>
         fill(alarmStart, .direction = "down") |>
         mutate(alarmEnd = if_else((allAlarms == 1 & lead(allAlarms) == 0), datetime, NA)) |>
         filter(!is.na(alarmEnd)) |>
@@ -177,18 +224,36 @@ alarm_duration <- function() {
         distinct(id, .keep_all = TRUE) |>
         right_join(unitOfAnalysis, by = c("id", "randomization", "nurse")) |>
         replace_na(list(outcome = as.duration(0))) |>
-        mutate(outcome = as.numeric(outcome), randomization = as.factor(randomization), id = as.factor(id), nurse = as.factor(nurse)) |>
+        mutate(
+            outcome = as.numeric(outcome),
+            randomization = as.factor(randomization),
+            id = as.factor(id),
+            nurse = as.factor(nurse)
+        ) |>
         # needs to be sorted by cluster for geeglm
         arrange(nurse) |>
         select(id, outcome, randomization, nurse) |>
         # E13 and E14 not in ds because missing the data from capnostream
-        rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled", outcome = 0)) |>
-        rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled", outcome = 0))
-
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E13",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        ) |>
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E14",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        )
 }
 
 appropriate_alarms <- function() {
-    ds <- open_dataset("data/", format = "parquet", hive = TRUE) |>
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list
         filter(!id %in% apply_exclusions())
     ds |>
@@ -216,18 +281,36 @@ appropriate_alarms <- function() {
         select(id, datetime, eventAlarm, randomization, nurse) |>
         mutate(outcome = sum(eventAlarm), .by = "id") |>
         filter(row_number() == 1, .by = c(id, nurse)) |>
-        mutate(outcome = as.numeric(outcome), randomization = as.factor(randomization), id = as.factor(id), nurse = as.factor(nurse)) |>
+        mutate(
+            outcome = as.numeric(outcome),
+            randomization = as.factor(randomization),
+            id = as.factor(id),
+            nurse = as.factor(nurse)
+        ) |>
         # needs to be sorted by cluster for geeglm
         arrange(nurse) |>
         select(id, randomization, nurse, outcome) |>
         # E13 and E14 not in ds because missing the data from capnostream
-        rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled", outcome = 0)) |>
-        rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled", outcome = 0))
-
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E13",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        ) |>
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E14",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        )
 }
 
 inappropriate_alarms <- function() {
-    ds <- open_dataset("data/", format = "parquet", hive = TRUE) |>
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list
         filter(!id %in% apply_exclusions())
     ds |>
@@ -262,11 +345,10 @@ inappropriate_alarms <- function() {
         # E13 and E14 not in ds because missing the data from capnostream
         rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled", outcome = 0)) |>
         rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled", outcome = 0))
-
 }
 
 spo2 <- function() {
-    ds <- open_dataset("data/", format = "parquet", hive = TRUE) |>
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list
         filter(!id %in% apply_exclusions())
     unitOfAnalysis <- ds |>
@@ -341,14 +423,6 @@ resids_plot <- function(object, y, nsim = 1000,
     DHARMa:::plotQQunif(dharmaRes)
 }
 
-# get_icc <- function(data, outcome) {
-#     model <- lme4::lmer(
-#         formula = paste0(outcome, " ~ (1 | nurse)"), data = data
-#         #   dplyr::filter(data, !!sym(outcome) != 0)
-#     )
-#     performance::icc(model)
-# }
-
 get_icc <- function(data, outcome) {
     lmemod <- nlme::lme(fixed = outcome ~ 1, random = ~ 1 | nurse, data = data)
     s2b1 <- as.numeric(nlme::VarCorr(lmemod))[[1]]
@@ -359,7 +433,7 @@ get_icc <- function(data, outcome) {
 }
 
 get_adverse_events_df <- function() {
-    ds <- open_dataset("data/", format = "parquet", hive = TRUE)
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE)
     unitOfAnalysis <- ds |>
         # filter to exclude patients not in exclusion list
         filter(!id %in% apply_exclusions()) |>
@@ -438,13 +512,13 @@ get_spo2_plot <- function(spo2_auc) {
             plot.title.position = "plot",
             legend.title = element_blank()
         ) +
-        labs(subtitle = "Area under the oxygen desaturation curve", x = NULL, y = NULL)
+        labs(subtitle = "SpO2 <90%", x = NULL, y = NULL)
 
-    combined = plot2 + plot1 +
+    combined <- plot2 + plot1 +
         plot_layout(ncol = 2, ) +
         plot_annotation(tag_levels = "A")
 
-        ggplot2::ggsave(combined, filename = "spo2.svg", device = "svg")
+    ggplot2::ggsave(combined, filename = "spo2.svg", device = "svg")
 }
 
 get_primary_plot <- function(primary) {
@@ -478,40 +552,40 @@ get_primary_plot <- function(primary) {
             plot.title.position = "plot",
             legend.title = element_blank()
         ) +
-        labs(subtitle = str_wrap("Number of seconds in an alarm state without intervention", 50), x = NULL, y = NULL)
+        labs(subtitle = str_wrap("Number of patients who had an alarm", 50), x = NULL, y = NULL)
 
-    combined = plot2 + plot1 +
+    combined <- plot2 + plot1 +
         plot_layout(ncol = 2, ) +
-        plot_annotation(tag_levels = "A") 
+        plot_annotation(tag_levels = "A")
 
-        ggplot2::ggsave(combined, filename = "primary.svg", device = "svg")
+    ggplot2::ggsave(combined, filename = "primary.svg", device = "svg")
 }
 
-get_cluster_size_randomized = function() {
-    ds = open_dataset("data/",format="parquet", hive = TRUE)
-ds |>
-# filter(!id %in% apply_exclusions()) |>
-collect() |>
-distinct(id, .keep_all = T) |>
-select(nurse, id, randomization) |>
+get_cluster_size_randomized <- function() {
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE)
+    ds |>
+        # filter(!id %in% apply_exclusions()) |>
+        collect() |>
+        distinct(id, .keep_all = T) |>
+        select(nurse, id, randomization) |>
         # E13 and E14 not in ds because missing the data from capnostream
         rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled")) |>
         rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled")) |>
-# count the number of ids per nurse
-group_by(nurse, randomization) |>
-summarize(n = n()) 
+        # count the number of ids per nurse
+        group_by(nurse, randomization) |>
+        summarize(n = n())
 }
-get_cluster_size_analyzed = function() {
-    ds = open_dataset("data/",format="parquet", hive = TRUE)
-ds |>
-filter(!id %in% apply_exclusions()) |>
-collect() |>
-distinct(id, .keep_all = T) |>
-select(nurse, id, randomization) |>
+get_cluster_size_analyzed <- function() {
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE)
+    ds |>
+        filter(!id %in% apply_exclusions()) |>
+        collect() |>
+        distinct(id, .keep_all = T) |>
+        select(nurse, id, randomization) |>
         # E13 and E14 not in ds because missing the data from capnostream
         rbind(data.frame(nurse = "N09", id = "E13", randomization = "IPI disabled")) |>
         rbind(data.frame(nurse = "N09", id = "E14", randomization = "IPI disabled")) |>
-# count the number of ids per nurse
-group_by(nurse, randomization) |>
-summarize(n = n()) 
+        # count the number of ids per nurse
+        group_by(nurse, randomization) |>
+        summarize(n = n())
 }

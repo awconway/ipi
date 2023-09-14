@@ -134,10 +134,10 @@ clean_files <- function(file) {
   if (!dir.exists("monitor_data")) {
     dir.create("monitor_data")
   }
-  if (!dir.exists(paste0("data/", pt))) {
-    dir.create(paste0("data/", pt))
+  if (!dir.exists(paste0("monitor_data/", pt))) {
+    dir.create(paste0("monitor_data/", pt))
   }
-  write_parquet(monitor_data, sink = paste0("data/", pt, "/part-0.parquet"))
+  write_parquet(monitor_data, sink = paste0("monitor_data/", pt, "/part-0.parquet"))
 }
 
 files <- list.files("csv_data")

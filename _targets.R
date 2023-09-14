@@ -32,14 +32,12 @@ list(
   tar_target(primary, primary_outcome()),
   tar_target(primary_plot, get_primary_plot(primary)),
   tar_target(zinb, GLMMadaptive::mixed_model(
-    fixed = outcome ~ randomization, random = ~ 1 | nurse, data = primary,
-    family = GLMMadaptive::zi.negative.binomial(), zi_fixed = ~randomization, zi_random = ~ 1 | nurse,
+    fixed = outcome ~ randomization, random = ~ 1 | nurse, data = primary |>filter(outcome != 0),
+    family = GLMMadaptive::negative.binomial(), 
   )),
   tar_target(zinb_summary, summary(zinb)),
-  tar_target(zinb_resid_plot, resids_plot(zinb, primary$outcome)),
   tar_target(zinb_nb_effects, exp(confint(zinb))),
-  tar_target(zinb_zero_effects, exp(confint(zinb, "zero_part"))),
-  tar_target(icc, get_icc(data = primary, outcome = "outcome")),
+  tar_target(icc, get_icc(data = primary |> filter(outcome != 0), outcome = "outcome")),
   # duration
   tar_target(duration, alarm_duration()),
   tar_target(zinb_duration, GLMMadaptive::mixed_model(
@@ -72,25 +70,9 @@ list(
   tar_target(zinb_resid_plot_app_alarms, resids_plot(zinb_app_alarms, app_alarms$outcome)),
   tar_target(zinb_nb_effects_app_alarms, exp(confint(
     zinb_app_alarms
-    # , sandwich = TRUE
   ))),
   tar_target(zinb_zero_effects_app_alarms, exp(confint(zinb_app_alarms, "zero_part"))),
   tar_target(icc_app_alarms, get_icc(data = app_alarms, outcome = "outcome")),
-  tar_target(app_alarms_plot, app_alarms |>
-    filter(outcome != 0) |>
-    ggplot(aes(y = outcome, x = randomization, color = randomization)) +
-    geom_quasirandom(
-      size = 1.5,
-      alpha = 0.8,
-      width = 0.4
-    ) +
-    theme_minimal() +
-    labs(title = "app_alarms by randomization") +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    #   remove axis labels
-    theme(axis.title = element_blank()) +
-    # remove color legend
-    guides(color = FALSE)),
   tar_target(inapp_alarms, inappropriate_alarms()),
   tar_target(zinb_inapp_alarms, GLMMadaptive::mixed_model(
     fixed = outcome ~ randomization, random = ~ 1 | nurse, data = inapp_alarms,
@@ -101,21 +83,6 @@ list(
   tar_target(zinb_nb_effects_inapp_alarms, exp(confint(zinb_inapp_alarms))),
   tar_target(zinb_zero_effects_inapp_alarms, exp(confint(zinb_inapp_alarms, "zero_part"))),
   tar_target(icc_inapp_alarms, get_icc(data = inapp_alarms, outcome = "outcome")),
-  tar_target(inapp_alarms_plot, inapp_alarms |>
-    filter(outcome != 0) |>
-    ggplot(aes(y = outcome, x = randomization, color = randomization)) +
-    geom_quasirandom(
-      size = 1.5,
-      alpha = 0.8,
-      width = 0.3
-    ) +
-    theme_minimal() +
-    labs(title = "inapp_alarms by randomization") +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    #   remove axis labels
-    theme(axis.title = element_blank()) +
-    # remove color legend
-    guides(color = FALSE)),
   tar_target(adverse_events_df, get_adverse_events_df()),
   tar_target(adverse_events_model, get_adverse_events_model(adverse_events_df)),
   tar_target(adverse_events_icc, get_adverse_events_icc(adverse_events_df)),
