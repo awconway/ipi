@@ -252,6 +252,63 @@ alarm_duration <- function() {
         )
 }
 
+alarms <- function() {
+    ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
+        # filter to exclude patients not in exclusion list
+        filter(!id %in% apply_exclusions())
+    ds |>
+        mutate(allAlarms = case_when(
+            pulseRateLow == 1 ~ 1,
+            pulseRateHigh == 1 ~ 1,
+            respRateLow == 1 ~ 1,
+            respRateHigh == 1 ~ 1,
+            noBreath == 1 ~ 1,
+            spo2Low == 1 ~ 1,
+            spo2High == 1 ~ 1,
+            etco2Low == 1 ~ 1,
+            etco2High == 1 ~ 1,
+            ipiLow == 1 ~ 1,
+            TRUE ~ 0
+        )) |>
+        collect() |>
+        # exclude the alarms that were only due to incorrectly fitting cannula
+        mutate(event = case_when(
+            event == "Fix equipment" ~ NA_character_,
+            # event == "Alarm silenced" ~ NA_character_,
+            TRUE ~ event
+        )) |>
+        # add a column to know if the condition allAlarms == 1 & !is.na(event) was met or not
+        mutate(eventAlarm = if_else(allAlarms == 1 & !is.na(event), 1, 0)) |>
+        select(id, datetime, eventAlarm, randomization, nurse) |>
+        mutate(outcome = sum(eventAlarm), .by = "id") |>
+        filter(row_number() == 1, .by = c(id, nurse)) |>
+        mutate(
+            outcome = as.numeric(outcome),
+            randomization = as.factor(randomization),
+            id = as.factor(id),
+            nurse = as.factor(nurse)
+        ) |>
+        # needs to be sorted by cluster for geeglm
+        arrange(nurse) |>
+        select(id, randomization, nurse, outcome) |>
+        # E13 and E14 not in ds because missing the data from capnostream
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E13",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        ) |>
+        rbind(
+            data.frame(
+                nurse = "N09",
+                id = "E14",
+                randomization = "IPI disabled",
+                outcome = 0
+            )
+        )
+}
 appropriate_alarms <- function() {
     ds <- open_dataset("monitor_data/", format = "parquet", hive = TRUE) |>
         # filter to exclude patients not in exclusion list

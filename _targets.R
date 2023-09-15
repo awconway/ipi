@@ -61,6 +61,22 @@ list(
   tar_target(zinb_zero_effects_spo2_auc, exp(confint(zinb_spo2, "zero_part"))),
   tar_target(icc_spo2_auc, get_icc(data = spo2_auc, outcome = "outcome")),
   tar_target(spo2_plot, get_spo2_plot(spo2_auc)),
+  # alarm burden (all alarms)
+  tar_target(alarms, appropriate_alarms()),
+  tar_target(zinb_alarms, GLMMadaptive::mixed_model(
+    fixed = outcome ~ randomization, random = ~ 1 | nurse, data = alarms,
+    family = GLMMadaptive::zi.negative.binomial(), 
+    # control = list(max_phis_value = exp(15)), 
+    zi_fixed = ~randomization, zi_random = ~ 1 | nurse
+  )),
+  tar_target(zinb_summary_alarms, summary(zinb_alarms)),
+  tar_target(zinb_resid_plot_alarms, resids_plot(zinb_alarms, alarms$outcome)),
+  tar_target(zinb_nb_effects_alarms, exp(confint(
+    zinb_alarms
+  ))),
+  # tar_target(zinb_zero_effects_alarms, exp(confint(zinb_alarms, "zero_part"))),
+  tar_target(icc_alarms, get_icc(data = alarms, outcome = "outcome")),
+  # appropriate alarms (those that weren't silenced)
   tar_target(app_alarms, appropriate_alarms()),
   tar_target(zinb_app_alarms, GLMMadaptive::mixed_model(
     fixed = outcome ~ randomization, random = ~ 1 | nurse, data = app_alarms,

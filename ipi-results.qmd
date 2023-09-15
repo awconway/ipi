@@ -60,7 +60,13 @@ library(tidyverse)
 tar_load(c(
   zinb_nb_effects, 
 zinb_summary, 
-zinb_zero_effects, zinb_nb_effects_duration, zinb_zero_effects_duration, zinb_summary_duration,
+zinb_zero_effects,
+zinb_nb_effects_duration,
+zinb_zero_effects_duration,
+zinb_summary_duration,
+zinb_summary_alarms,
+zinb_nb_effects_alarms,
+zinb_zero_effects_alarms,
 zinb_summary_app_alarms,
 zinb_nb_effects_app_alarms,
 zinb_zero_effects_app_alarms,
@@ -73,6 +79,7 @@ adverse_events_model,
   icc,
   icc_alarm_duration,
   icc_spo2_auc,
+  icc_alarms,
   icc_app_alarms,
   icc_inapp_alarms
 
@@ -96,7 +103,7 @@ Participants were enrolled from the interventional radiology department at an ac
 
 ## Results
 
-The incidence rate ratio was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`) for the number of seconds in an alarm state without an intervention,  `r zinb_nb_effects_duration[4]` (95% CI `r zinb_nb_effects_duration[2]` to `r zinb_nb_effects_duration[6]`) for total alarm duration, `r zinb_nb_effects_app_alarms[4]` (95% CI `r zinb_nb_effects_app_alarms[2]` to `r zinb_nb_effects_app_alarms[6]`) for the number of appropriate alarms and `r zinb_nb_effects_inapp_alarms[4]`) for the number of inappropriate alarms (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`). The odds ratio for the occurrence of an adverse event in the alarm-enabled group compared to the alarm-disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`). Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`).
+The incidence rate ratio was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`) for the number of seconds in an alarm state without an intervention,  `r zinb_nb_effects_duration[4]` (95% CI `r zinb_nb_effects_duration[2]` to `r zinb_nb_effects_duration[6]`) for total alarm duration, `r zinb_nb_effects_alarms[4]` (95% CI `r zinb_nb_effects_alarms[2]` to `r zinb_nb_effects_alarms[6]`) for the total number of alarms, `r zinb_nb_effects_app_alarms[4]` (95% CI `r zinb_nb_effects_app_alarms[2]` to `r zinb_nb_effects_app_alarms[6]`) for the number of appropriate alarms and `r zinb_nb_effects_inapp_alarms[4]` (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`) for the number of inappropriate alarms. The odds ratio for the occurrence of an adverse event in the alarm-enabled group compared to the alarm-disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`). Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`).
 
 ## Conclusion
 
@@ -124,7 +131,9 @@ Nursing, sedation, procedural sedation, physiological monitoring, capnography, a
 
 ## What does this paper contribute to the wider global clinical community?
 
-Alarm management strategies that focus on integrating multiple physiological indicators into one index may not improve alarm performance. It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management. Further research is needed to evaluate this potentially beneficial impact on patient safety.
+There was a large number of capnography monitor alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance.
+
+It is possible that the actions taken in response to alarms in the Integrated Pulmonary Index group mediated the reduction in severity of oxygen desaturation events, which potentially signals a safety benefit for using this approach for capnography alarm management. Further research is needed to evaluate this potentially beneficial impact on patient safety.
 
 ## Trial Registration
 
@@ -134,11 +143,15 @@ This study was registered at ClinicalTrials.gov (ID: NCT05068700)
 
 # Introduction
 
-The medications used for nurse-administered procedural sedation are central nervous system depressants. As such, all patients who receive nurse-administered procedural sedation are at risk of sedation-induced respiratory depression. Nurses must continually analyze and integrate information from multiple different individual parameters to make an assessment of respiratory status and implement interventions to restore normal function if indicated [@Conway_2013]. The Integrated Pulmonary Index (IPI) is a smart alarm that can be enabled in some models of capnography monitors, which shows promise as a tool to assist clinician's with the process of respiratory assessment. It is a mathematically-derived index based on a fuzzy-logic inference model, which combines physiological parameters related to respiratory function, such as end-tidal carbon dioxide, oxygen saturation, respiration rate, and heart rate [@Ronen_2016]. By assigning clinical responses to specific IPI scores, it simplifies the interpretation of continuous oxygenation and ventilation monitoring. Specifically, it aims to reduce the cognitive load of synthesizing multiple sources of physiological monitoring data and lower the threshold for intervention by clinicians to support respiration. An IPI score of four had over 90% sensitivity and specificity for detecting clinically significant events in a clinical validation study [@Ronen_2016].  This study aimed to determine whether using the IPI during nurse-administered sedation achieves its intended effect of reducing the threshold for intervention by measuring the time it takes for nurses to respond to capnography monitor alarms.
+The medications used for nurse-administered procedural sedation are central nervous system depressants. As such, all patients who receive nurse-administered procedural sedation are at risk of sedation-induced respiratory depression. Nurses must continually analyze and integrate information from multiple different individual parameters to make an assessment of respiratory status and implement interventions to restore normal function if indicated [@Conway_2013]. 
+
+Physiological monitor alarms are used to alert clinicians to changes in physiological parameters that may indicate a deterioration in respiratory function. However, the high number of alarms that are triggered by physiological monitors can lead to alarm fatigue, which is a desensitization to alarms that can result in delayed or missed responses to clinically significant events [@sendelbach2013alarm]. Alarm fatigue is a recognized patient safety issue that has been associated with adverse events and patient deaths [@sendelbach2013alarm]. Capnography can detect even minor abnormalities in breathing patterns, so it is essential when using this device during nurse-administered sedation that the alarm conditions set will not result in unnecessary disruptions to procedures. Ideally, every alarm that gets triggered from a capnography monitor during a procedure should be important enough to trigger an intervention. In addition, the intervention should be initiated as soon as possible after the alarm is triggered, to both minimize the duration of the alarm and to ensure that the patient is not exposed to a prolonged period of respiratory compromise.
+
+The Integrated Pulmonary Index (IPI) is a smart alarm that can be enabled in some models of capnography monitors, which shows promise as a tool to assist clinician's with the process of respiratory assessment. It is a mathematically-derived index based on a fuzzy-logic inference model, which combines physiological parameters related to respiratory function, such as end-tidal carbon dioxide, oxygen saturation, respiration rate, and heart rate [@Ronen_2016]. By assigning clinical responses to specific IPI scores, it simplifies the interpretation of continuous oxygenation and ventilation monitoring. Specifically, it aims to reduce the cognitive load of synthesizing multiple sources of physiological monitoring data and lower the threshold for intervention by clinicians to support respiration. An IPI score of four had over 90% sensitivity and specificity for detecting clinically significant events in a clinical validation study [@Ronen_2016]. This study aimed to determine whether using the IPI during nurse-administered sedation achieves its intended effect of reducing the threshold for intervention by measuring the time it takes for nurses to respond to capnography monitor alarms.
 
 # Background
 
-The use of capnography for ventilation monitoring (without the IPI) has been shown to improve safety, evidenced by a reduction in episodes of hypoxemia in a meta-analysis [@Conway_2016]. As a result, capnography monitoring is recommended for use during sedation in many clinical practice guidelines [@Dobson_2018; @Conway_2013]. The IPI has been evaluated in a number of different studies across multiple clinical settings, including the intensive care unit [@Kaur2021], emergency department[@Gurlu2022; @Karaarslan2023] and post-operative recovery [@kuroe2021integrated]. For the procedural sedation context specifically, there has been two randomized trials that compared the use of capnography monitoring with the IPI enabled against no capnography monitoring. One of the trials, which recruited patients undergoing sedation for percutaneous endoscopic gastrostomy, found that the odds of hypoxia was increased more than 4-fold when capnography with the IPI was not used [@Michael2021]. In contrast, an earlier study reported that using capnography with the IPI did not reduce the maximum decrease of oxygen saturation or rates of oxygen desaturation below 90% in patients who received sedation for interventional upper GI-endoscopy[@riphaus2017clinical]. In both of these trials, patients included in the 'usual care' comparison groups were not monitored with capnography. Therefore, there is a lack of evidence about the unique contribution to patient safety that using the IPI produces _in addition_ to capnography.
+The use of capnography for ventilation monitoring (without the IPI) has been shown to improve safety, evidenced by a reduction in episodes of hypoxemia in a meta-analysis [@Conway_2016]. As a result, capnography monitoring is recommended for use during sedation in many clinical practice guidelines [@Dobson_2018; @Conway_2013]. The IPI has been evaluated in a number of different studies across multiple clinical settings, including the intensive care unit [@Kaur2021], emergency department[@Gurlu2022; @Karaarslan2023] and post-operative recovery [@kuroe2021integrated]. For the procedural sedation context specifically, there has been two randomized trials that compared the use of capnography monitoring with the IPI enabled against no capnography monitoring. One of the trials, which recruited patients undergoing sedation for percutaneous endoscopic gastrostomy, found that the odds of hypoxia was increased more than 4-fold when capnography with the IPI was not used [@Michael2021]. In contrast, an earlier study reported that using capnography with the IPI did not reduce the maximum decrease of oxygen saturation or rates of oxygen desaturation below 90% in patients who received sedation for interventional upper GI-endoscopy[@riphaus2017clinical]. In both of these trials, patients included in the 'usual care' comparison groups were not monitored with capnography. Therefore, there is a lack of evidence about the unique contribution of enabling the IPI when capnography is used during nurse-administered procedural sedation.
 
 # The Study
 
@@ -189,7 +202,7 @@ Nurses randomized to enable the IPI were instructed to enable this feature when 
 
 ## Data collection
 
-Due to the hybrid effectiveness-implementation design, we used routinely collected clinical data as the source for information about participant and procedure characteristics [@ward2018evaluating]. Procedures were observed by a research assistant to collect information about alarm performance characteristics. Adverse sedation events were evaluated by the research assistant who observed procedures for participants included in the study. The research assistant was not blinded to the randomization allocation of the nurse because it was not practical to obscure the monitor from their view without also impeding the nurses own use of the device.
+Routinely collected clinical data was used to collect information about participant and procedure characteristics [@ward2018evaluating]. A research assistant observed procedures to collect information about alarm performance characteristics. Adverse sedation events were evaluated by the research assistant who observed procedures. The research assistant was not blinded to the randomization allocation of the nurse because it was not practical to obscure the monitor from their view without also impeding the nurses own use of the device.
 
 ## Outcomes
 
@@ -206,7 +219,7 @@ The secondary outcomes for the study were the following:
 
 ## Data analysis
 
-An intention-to-treat approach was used. Patients were included in the analysis if their procedure was observed by the research assistant during the evaluation period of the study, provided that sedation was administered. Patients who did not receive sedation during their procedure for any reason were not included. The primary outcome was a count of the total number of seconds from initiation of an alarm to implementation of an intervention by a nurse, so we used a mixed effects negative binomial model. The fixed effect in the model was the randomization and the random effect was the cluster. The secondary outcome measures that were counts of the duration or number of alarms were analyzed using a zero-inflated mixed effects models that accounted for the large number of zero scores that occurred for patients who had no alarms. The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with, and a negative binomial model for the count process. This analysis was conducted using the `mixed_model` function from the GLMMadaptive R package [@GLMMadaptive].  A hurdle lognormal model was used for the area under the curve of oxygen desaturation outcome because it follows the same general approach as zero-inflated models but where the outcome is not a count variable. A mixed effects logistic regression model was used for the binary adverse events outcome. We pre-specified in the protocol that a process evaluation of alarm performance over time during the establishment and stability phases would be conducted, which will be reported separately.
+An intention-to-treat approach was used. Patients were included in the analysis if their procedure was observed by the research assistant during the evaluation period of the study, provided that sedation was administered. Patients who did not receive sedation during their procedure for any reason were not included. The primary outcome was a count of the total number of seconds from initiation of an alarm to implementation of an intervention by a nurse, so we used a mixed effects negative binomial model. The fixed effect in the model was the randomization and the random effect was the cluster. The secondary outcome measures that were counts of the duration or number of alarms were analyzed using zero-inflated mixed effects models that accounted for the large number of zero scores from patients who had no alarms. The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with, and a negative binomial model for the count process. This analysis was conducted using the `mixed_model` function from the GLMMadaptive R package [@GLMMadaptive].  A hurdle lognormal model was used for the area under the curve of oxygen desaturation outcome because it follows the same general approach as zero-inflated models but where the outcome is not a count variable. A mixed effects logistic regression model was used for the binary adverse events outcome. We pre-specified in the protocol that a process evaluation of alarm performance over time during the establishment and stability phases would be conducted, which will be reported separately.
 
 ## Ethical considerations
 
@@ -224,7 +237,7 @@ A summary of characteristics for patients included in the analysis is provided i
 
 The incidence rate ratio for the primary outcome, which was the number of seconds in an alarm state without an intervention, was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`). The intra-cluster correlation coefficient for the primary outcome was 0.03. Figure 2A displays a breakdown of the proportion of participants who had any any alarms between groups and 2B further presents the number of seconds an alarm was triggered without intervention.
 
-A summary of results for both components of the zero-inflated negative binomial models used to compare differences in alarm performance between the IPI-enabled and IPI-disabled groups is presented in Table 3. There was no difference between groups for the secondary outcomes of the total alarm duration and number of appropriate alarms. The effect estimate (IRR `r zinb_nb_effects_inapp_alarms[4]`) for the negative binomial component of the model for the number of inappropriate alarms was statistically significantly but highly imprecise (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`).
+A summary of results for both components of the zero-inflated negative binomial models used to compare differences in alarm performance between the IPI-enabled and IPI-disabled groups is presented in Table 3. There was no difference between groups for the secondary outcomes of total alarm burden, the total alarm duration and number of appropriate alarms. The effect estimate (IRR `r zinb_nb_effects_inapp_alarms[4]`) for the negative binomial component of the model for the number of inappropriate alarms was statistically significantly but highly imprecise (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`).
 
 ## Clinical outcomes
 
@@ -262,6 +275,24 @@ Enabling the Integrated Pulmonary Index during nurse-administered procedural sed
 
 ::: {#refs}
 :::
+
+{{< pagebreak >}}
+
+![](consort.png)
+
+**Figure 2. CONSORT diagram**
+
+{{< pagebreak >}}
+
+![](primary.svg)
+
+**Figure 2. Number of seconds in an alert state condition without intervention**
+
+{{< pagebreak >}}
+
+![](spo2.svg)
+
+**Figure 3. Area under SpO~2~ 90% oxygen desaturation curve**
 
 {{< pagebreak >}}
 
@@ -304,6 +335,8 @@ df  <- tibble::tribble(
   ~`Outcome`, ~`IRR`, ~`NB_95% CI`, ~`NB_p-value`,~`OR`, ~`95% CI`, ~`p-value`, ~`ICC`,
 
   "Total alarm duration", zinb_nb_effects_duration[4], paste0(round(zinb_nb_effects_duration[2], 2), " to ", round(zinb_nb_effects_duration[6], 2)), zinb_summary_duration$coef_table[2,4], zinb_zero_effects_duration[4], paste0(round(zinb_zero_effects_duration[2], 2), " to ", round(zinb_zero_effects_duration[6], 2)), zinb_summary_duration$coef_table_zi[2,4],  as.character(round(icc_alarm_duration, 2)),
+
+  "Number of alarms", zinb_nb_effects_alarms[4], paste0(round(zinb_nb_effects_alarms[2], 2), " to ", round(zinb_nb_effects_alarms[6], 2)), zinb_summary_alarms$coef_table[2,4], zinb_zero_effects_alarms[4], paste0(round(zinb_zero_effects_alarms[2], 2), " to ", round(zinb_zero_effects_alarms[6], 2)), zinb_summary_alarms$coef_table_zi[2,4],  if_else(icc_inapp_alarms < 0.01, "<0.01", as.character(round(icc_alarms, 2))),
 
   "Number of appropriate alarms", zinb_nb_effects_app_alarms[4], paste0(round(zinb_nb_effects_app_alarms[2], 2), " to ", round(zinb_nb_effects_app_alarms[6], 2)), zinb_summary_app_alarms$coef_table[2,4], zinb_zero_effects_app_alarms[4], paste0(round(zinb_zero_effects_app_alarms[2], 2), " to ", round(zinb_zero_effects_app_alarms[6], 2)), zinb_summary_app_alarms$coef_table_zi[2,4],  if_else(icc_inapp_alarms < 0.01, "<0.01", as.character(round(icc_app_alarms, 2))),
 
