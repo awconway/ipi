@@ -103,7 +103,7 @@ Participants were enrolled from the interventional radiology department at an ac
 
 ## Results
 
-The incidence rate ratio was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`) for the number of seconds in an alarm state without an intervention,  `r zinb_nb_effects_duration[4]` (95% CI `r zinb_nb_effects_duration[2]` to `r zinb_nb_effects_duration[6]`) for total alarm duration, `r zinb_nb_effects_alarms[4]` (95% CI `r zinb_nb_effects_alarms[2]` to `r zinb_nb_effects_alarms[6]`) for the total number of alarms, `r zinb_nb_effects_app_alarms[4]` (95% CI `r zinb_nb_effects_app_alarms[2]` to `r zinb_nb_effects_app_alarms[6]`) for the number of appropriate alarms and `r zinb_nb_effects_inapp_alarms[4]` (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`) for the number of inappropriate alarms. The odds ratio for the occurrence of an adverse event in the alarm-enabled group compared to the alarm-disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`). Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`).
+The incidence rate ratio (enabled versus disabled group) was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`) for the number of seconds in an alarm state without an intervention,  `r zinb_nb_effects_duration[4]` (95% CI `r zinb_nb_effects_duration[2]` to `r zinb_nb_effects_duration[6]`) for total alarm duration, `r zinb_nb_effects_alarms[4]` (95% CI `r zinb_nb_effects_alarms[2]` to `r zinb_nb_effects_alarms[6]`) for the total number of alarms, `r zinb_nb_effects_app_alarms[4]` (95% CI `r zinb_nb_effects_app_alarms[2]` to `r zinb_nb_effects_app_alarms[6]`) for the number of appropriate alarms and `r zinb_nb_effects_inapp_alarms[4]` (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`) for the number of inappropriate alarms. The odds ratio for the occurrence of an adverse event in the enabled group compared to the disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`). Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`).
 
 ## Conclusion
 
@@ -131,9 +131,9 @@ Nursing, sedation, procedural sedation, physiological monitoring, capnography, a
 
 ## What does this paper contribute to the wider global clinical community?
 
-There was a large number of capnography monitor alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance.
+There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance.
 
-It is possible that the actions taken in response to alarms in the Integrated Pulmonary Index group mediated the reduction in severity of oxygen desaturation events, which potentially signals a safety benefit for using this approach for capnography alarm management. Further research is needed to evaluate this potentially beneficial impact on patient safety.
+It is possible that clinical interventions taken in response to alarms in the Integrated Pulmonary Index group mediated the reduction in severity of oxygen desaturation events, which potentially signals a safety benefit for using this approach for capnography alarm management. Further research is needed to evaluate this potentially beneficial impact on patient safety.
 
 ## Trial Registration
 
@@ -241,7 +241,7 @@ A summary of results for both components of the zero-inflated negative binomial 
 
 ## Clinical outcomes
 
-As can be seen in Figure 3A, desaturation events were not common in either group. Figure 3B shows the area under the SpO~2~ 90% desaturation curve scores for participants who had a desaturation event, which were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`). There was one intermediate severity respiratory adverse event observed in the IPI disabled group. There were two intermediate-severity adverse events related to sedation quality in the IPI enabled group. The remaining 13 adverse events were minor severity related to breathing where oxygen desaturation was addressed with minor interventions. There were no serious adverse events observed in either group. The odds ratio for the occurrence of an adverse event in the IPI enabled group compared to the IPI disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`).
+Desaturation events were not common in either group. Area under the SpO~2~ 90% desaturation curve scores for participants who had a desaturation event were lower for the IPI-enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`). There was one intermediate severity respiratory adverse event observed in the IPI disabled group. There were two intermediate-severity adverse events related to sedation quality in the IPI enabled group. The remaining 13 adverse events were minor severity related to breathing where oxygen desaturation was addressed with minor interventions. There were no serious adverse events observed in either group. The odds ratio for the occurrence of an adverse event in the IPI enabled group compared to the IPI disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`).
 
 # Discussion
 
@@ -259,7 +259,7 @@ There was a smaller number of clusters included than we had planned due to the r
 
 ## Recommendations for further research
 
-There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance. It is possible that the IPI is not an effective strategy to lower the threshold for intervention by nurses because it does not provide sufficient information about the underlying cause of the alarm. For example, a low IPI score could be caused by a low respiratory rate, low oxygen saturation, or both. It is possible that the IPI does not provide sufficient information to guide nurses' decision-making about the appropriate intervention to apply. Future research should investigate whether the use of the IPI in combination with other strategies, such as alarm escalation protocols, can improve alarm performance. 
+There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance. Further exploratory research would be worthwhile to investigate nurses' decision-making process to understand the potential reasons why using the IPI was not an effective strategy to lower the threshold for intervention by nurses. For example, it is possible that the IPI does not provide sufficient information to guide nurses' decision-making about the appropriate intervention to apply. Additionally, future research could investigate whether the use of the IPI in combination with other strategies, such as alarm escalation protocols, can improve alarm performance. Additionally, there is increasing evidence that machine learning approaches could be used to improve capnography alarm management [@conway2023deep; @conway2021predicting]. The IPI is a mathematically-derived index, so it is possible that machine learning approaches could be used to develop a more effective index for capnography alarm management. 
 
 ## Implications for policy and practice
 
@@ -290,18 +290,11 @@ Enabling the Integrated Pulmonary Index during nurse-administered procedural sed
 
 {{< pagebreak >}}
 
-![](spo2.svg)
-
-**Figure 3. Area under SpO~2~ 90% oxygen desaturation curve**
-
-{{< pagebreak >}}
-
 ```{r}
 #| tbl-cap: Table 1. Sample characteristics
 targets::tar_read(summary_table)
 ```
 
-{{< pagebreak >}}
 
 ```{r}
 #| tbl-cap: Table 2. Alarm settings used by nurses during the study
