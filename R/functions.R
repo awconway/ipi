@@ -591,7 +591,7 @@ get_primary_plot <- function(primary) {
             plot.title.position = "plot",
             legend.title = element_blank()
         ) +
-        labs(subtitle = str_wrap("Number of seconds in an alarm state without intervention for only participants with a score higher than zero", width = 50)) +
+        # labs(subtitle = str_wrap("Number of seconds in an alarm state without intervention for only participants with a score higher than zero", width = 50)) +
         theme(plot.title = element_text(hjust = 0.5)) +
         guides(color = FALSE) +
         scale_y_continuous(limits = c(0, NA)) +
@@ -608,8 +608,8 @@ get_primary_plot <- function(primary) {
             panel.background = element_blank(),
             plot.title.position = "plot",
             legend.title = element_blank()
-        ) +
-        labs(subtitle = str_wrap("Number of patients who had an alarm", 50), x = NULL, y = NULL)
+        )
+        # labs(subtitle = str_wrap("Number of patients who had an alarm", 50), x = NULL, y = NULL)
 
     combined <- plot2 + plot1 +
         plot_layout(ncol = 2, ) +

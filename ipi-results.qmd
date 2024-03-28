@@ -20,9 +20,6 @@ authors:
     affiliations:
       - ref: uota
       - ref: tgha
-  - name: Blair Warren
-    affiliations:
-      - ref: ir
   - name: Sebastian Mafled
     affiliations:
       - ref: ir
@@ -103,7 +100,7 @@ Participants were enrolled from the interventional radiology department at an ac
 
 ## Results
 
-The incidence rate ratio (enabled versus disabled group) was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`) for the number of seconds in an alarm state without an intervention,  `r zinb_nb_effects_duration[4]` (95% CI `r zinb_nb_effects_duration[2]` to `r zinb_nb_effects_duration[6]`) for total alarm duration, `r zinb_nb_effects_alarms[4]` (95% CI `r zinb_nb_effects_alarms[2]` to `r zinb_nb_effects_alarms[6]`) for the total number of alarms, `r zinb_nb_effects_app_alarms[4]` (95% CI `r zinb_nb_effects_app_alarms[2]` to `r zinb_nb_effects_app_alarms[6]`) for the number of appropriate alarms and `r zinb_nb_effects_inapp_alarms[4]` (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`) for the number of inappropriate alarms. The odds ratio for the occurrence of an adverse event in the enabled group compared to the disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`). Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`).
+The incidence rate ratio (enabled versus disabled group) was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`) for the number of seconds in an alarm state without an intervention,  `r zinb_nb_effects_duration[4]` (95% CI `r zinb_nb_effects_duration[2]` to `r zinb_nb_effects_duration[6]`) for total alarm duration, `r zinb_nb_effects_alarms[4]` (95% CI `r zinb_nb_effects_alarms[2]` to `r zinb_nb_effects_alarms[6]`) for the total number of alarms, `r zinb_nb_effects_app_alarms[4]` (95% CI `r zinb_nb_effects_app_alarms[2]` to `r zinb_nb_effects_app_alarms[6]`) for the number of appropriate alarms and `r zinb_nb_effects_inapp_alarms[4]` (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`) for the number of inappropriate alarms. The odds ratio for the occurrence of an adverse event (measured by the Tracking and Reporting Outcomes of Procedural Sedation tool) in the enabled group compared to the disabled group was `r adverse_events_model$Coefficient[2]` (95% CI `r adverse_events_model$CI_low[2]` to `r adverse_events_model$CI_high[2]`). Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the enabled group (𝛽 `r zinb_nb_effects_spo2_auc[4]`; 95% CI `r zinb_nb_effects_spo2_auc[2]` to `r zinb_nb_effects_spo2_auc[6]`).
 
 ## Conclusion
 
@@ -115,7 +112,7 @@ The time it takes to respond to capnography monitor alarms will not be reduced i
 
 ## Impact
 
-Results do not support the routine enabling of the Integrated Pulmonary Index when nurses use capnography to monitor patients during procedural sedation as a strategy to improve alarm performance. 
+Results do not support the routine enabling of the Integrated Pulmonary Index when nurses use capnography to monitor patients during procedural sedation as a strategy to reduce the time it takes to initiate responses to alarms. 
 
 ## Reporting method
 
@@ -131,9 +128,7 @@ Nursing, sedation, procedural sedation, physiological monitoring, capnography, a
 
 ## What does this paper contribute to the wider global clinical community?
 
-There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance.
-
-It is possible that clinical interventions taken in response to alarms in the Integrated Pulmonary Index group mediated the reduction in severity of oxygen desaturation events, which potentially signals a safety benefit for using this approach for capnography alarm management. Further research is needed to evaluate this potentially beneficial impact on patient safety.
+There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. It is possible that clinical interventions taken in response to alarms in the Integrated Pulmonary Index group mediated the reduction in severity of oxygen desaturation events, which potentially signals a safety benefit for using this approach for capnography alarm management. Further research is needed to evaluate this potentially beneficial impact on patient safety.
 
 ## Trial Registration
 
@@ -178,7 +173,7 @@ A parallel cluster randomized trial was conducted, guided by the hybrid effectiv
 
 ## Study Setting
 
-Participants were enrolled from the interventional radiology department at an academic hospital in Canada. We originally planned to recruit participants from other departments in the same network of hospitals. This was not possible due to changing priorities arising from significant staffing challenges in these other departments at the time of data collection.
+Participants were enrolled from the interventional radiology department at an academic hospital in Canada.
 
 ## Inclusion Criteria
 
@@ -202,11 +197,11 @@ Nurses randomized to enable the IPI were instructed to enable this feature when 
 
 ## Data collection
 
-Routinely collected clinical data was used to collect information about participant and procedure characteristics [@ward2018evaluating]. A research assistant observed procedures to collect information about alarm performance characteristics. Adverse sedation events were evaluated by the research assistant who observed procedures. The research assistant was not blinded to the randomization allocation of the nurse because it was not practical to obscure the monitor from their view without also impeding the nurses own use of the device.
+A research assistant observed all procedures to collect information about participant and procedure characteristics, alarm performance and adverse sedation events. The research assistant was not blinded to the randomization allocation of the nurse because it was not practical to obscure the monitor from their view without also impeding the nurses own use of the device.
 
 ## Outcomes
 
-The period between the initial sedative medication administration and the completion of the procedure was considered for outcome measurement. The primary outcome was the number of seconds in an alert condition state without an intervention being applied. For nurses who were randomized to enable the IPI, an alert condition state was triggered if the index fell below the lower limit threshold selected for this parameter in the Capnostream 35p monitor. For nurses who were randomized to disable the IPI, an alert condition state was triggered if any one of the physiological parameters measured by the Capnostream 35p monitor fell outside of the lower and upper limit thresholds selected for each parameter. Parameters measured included the pulse rate, respiratory rate, end-tidal carbon dioxide, and oxygen saturation. An alarm was also triggered if the 'no breath' criteria had been met for a specified minimum amount of time. An intervention was defined as a response to an alert condition state by a nurse.
+The primary outcome was the number of seconds in an alert condition state without an intervention being applied. For nurses who were randomized to enable the IPI, an alert condition state was triggered if the index fell below the lower limit threshold selected for this parameter in the Capnostream 35p monitor. For nurses who were randomized to disable the IPI, an alert condition state was triggered if any one of the physiological parameters measured by the Capnostream 35p monitor fell outside of the lower and upper limit thresholds selected for each parameter. Parameters measured included the pulse rate, respiratory rate, end-tidal carbon dioxide, and oxygen saturation. An alarm was also triggered if the 'no breath' criteria had been met for a specified minimum amount of time. An intervention was defined as a response to an alert condition state by a nurse.
 
 The secondary outcomes for the study were the following:
 
@@ -215,7 +210,7 @@ The secondary outcomes for the study were the following:
 -   Number of inappropriate alarms (defined as alarms that were triggered but manually dismissed by silencing the alarm).
 -   Total duration of alert conditions (defined as the total time that an alert condition was active inclusive of the time to an intervention and the time until the alert conditions are resolved).
 -   TROOPS adverse sedation events [@Roback_2018].
--   Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold.
+-   Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold [@ward2018evaluating].
 
 ## Data analysis
 
@@ -245,7 +240,7 @@ Desaturation events were not common in either group. Area under the SpO~2~ 90% d
 
 # Discussion
 
-This study investigated the impact of using the Integrated Pulmonary Index feature of capnography monitors on alarm performance during nurse-administered sedation procedural sedation. We found that the use of the Integrated Pulmonary Index did not reduce the number of seconds that alarms were triggered without intervention. As such, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index will help to lower the threshold for intervention by clinicians. Total alarm duration was not different between groups, suggesting that using the IPI may not adversely impact alarm fatigue by increasing exposure to alarms. 
+This study investigated the impact of using the IPI feature of capnography monitors on alarm performance during nurse-administered sedation procedural sedation. We found that the use of the IPI did not reduce the number of seconds that alarms were triggered without intervention. As such, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index will help to lower the threshold for intervention by clinicians. Total alarm duration was not different between groups, suggesting that using the IPI may not adversely impact alarm fatigue by increasing exposure to alarms. 
 
 Secondary outcomes revealed some insights that require further investigation. Of primary interest, although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve. This outcome comprises an assessment of both the length and severity of an oxygen desaturation event, which has been used in multiple different studies in procedural sedation [@van2021; @Conway2021; @Niklewski2014]. It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management. A previous randomized controlled trial that compared the use of IPI-enabled capnography monitoring with no capnography during deep sedation for interventional endoscopy found no difference in the average decrease in oxygen saturation [@riphaus2017clinical]. The discrepant results between this study and the previous study may be due to the different patient populations and sedation protocols. The previous study included patients who received propofol, which certainly has a more pronounced impact on respiratory function compared with the small doses of midazolam and fentanyl used in the present study [@riphaus2017clinical]. In a different clinical setting, there was evidence that using the IPI decreased the duration of respiratory events [@Broens2021]. A randomized trial that evaluated the use of the IPI for overnight monitoring of post-operative patients who received opioids found that the duration of low IPI events was reduced in comparison to standard monitoring [@Broens2021], which, similar to our trial, suggests that nurses' responses to IPI alarms may increase safety.
 
@@ -259,11 +254,11 @@ There was a smaller number of clusters included than we had planned due to the r
 
 ## Recommendations for further research
 
-There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve alarm performance. Further exploratory research would be worthwhile to investigate nurses' decision-making process to understand the potential reasons why using the IPI was not an effective strategy to lower the threshold for intervention by nurses. For example, it is possible that the IPI does not provide sufficient information to guide nurses' decision-making about the appropriate intervention to apply. Additionally, future research could investigate whether the use of the IPI in combination with other strategies, such as alarm escalation protocols, can improve alarm performance. Additionally, there is increasing evidence that machine learning approaches could be used to improve capnography alarm management [@conway2023deep; @conway2021predicting]. The IPI is a mathematically-derived index, so it is possible that machine learning approaches could be used to develop a more effective index for capnography alarm management. 
+There was a large number of alarms triggered in both groups where there was either a prolonged period before an intervention was applied or prolonged periods without any intervention. As such, it is clear from this study that further efforts are required to identify more effective strategies to optimize capnography alarm management. Our results indicate that simply combining multiple physiological parameters into a single index is not sufficient to improve nurses' responses to capnography alarms. Further exploratory research would be worthwhile to investigate nurses' decision-making process to understand the potential reasons why using the IPI was not an effective strategy to lower the threshold for intervention by nurses. For example, it is possible that the IPI does not provide sufficient information to guide nurses' decision-making about the appropriate intervention to apply. Additionally, future research could investigate whether the use of the IPI in combination with other strategies, such as alarm escalation protocols, can improve alarm performance. Additionally, there is increasing evidence that machine learning approaches could be used to improve capnography alarm management [@conway2023deep; @conway2021predicting]. The IPI is a mathematically-derived index, so it is possible that machine learning approaches could be used to develop a more effective index for capnography alarm management. 
 
 ## Implications for policy and practice
 
-The results do not support the routine enabling of the IPI when nurses use capnography to monitor patients during procedural sedation as a strategy to improve alarm performance. 
+The results do not support the routine enabling of the IPI when nurses use capnography to monitor patients during procedural sedation as a strategy to reduce the time it takes to initiate responses to alarms. 
 
 ## Conclusion
 
