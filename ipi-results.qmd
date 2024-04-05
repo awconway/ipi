@@ -218,7 +218,7 @@ An intention-to-treat approach was used. Patients were included in the analysis 
 
 ## Differences between the protocol and this report
 
-We initially planned to collect data from four departments that use procedural sedation in the health service in which this study was conducted. Three of these four departments did not participate, because significant challenges associated with workforce shortages arose at the time of data collection and it was decided that staff did not have the capacity to take on participation in research. We pre-specified in the protocol that a process evaluation of alarm performance over time during the establishment and stability phases would be conducted. The process evaluation will be reported separately. 
+We initially planned to collect data from four departments that use procedural sedation in the health service in which this study was conducted. Three of these four departments did not participate because significant challenges associated with workforce shortages arose at the time of data collection and it was decided that staff did not have the capacity to take on participation in research. We pre-specified in the protocol that a process evaluation of alarm performance over time during the establishment and stability phases would be conducted. The process evaluation will be reported separately. 
 
 ## Ethical considerations
 
@@ -234,7 +234,7 @@ A summary of characteristics for patients included in the analysis is provided i
 
 ## Alarm performance
 
-The incidence rate ratio for the primary outcome, which was the number of seconds in an alarm state without an intervention, was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`). The intra-cluster correlation coefficient for the primary outcome was 0.03. Figure 2A displays a breakdown of the proportion of participants who had any any alarms between groups and 2B further presents the number of seconds an alarm was triggered without intervention.
+The incidence rate ratio for the primary outcome, which was the number of seconds in an alarm state without an intervention, was `r zinb_nb_effects[4]` (95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`). The intra-cluster correlation coefficient for the primary outcome was 0.03. Figure 2A displays a breakdown of the proportion of participants who had any alarms between groups and 2B further presents the number of seconds an alarm was triggered without intervention.
 
 A summary of results for both components of the zero-inflated negative binomial models used to compare differences in alarm performance between the IPI-enabled and IPI-disabled groups is presented in Table 3. There was no difference between groups for the secondary outcomes of total alarm burden, the total alarm duration and number of appropriate alarms. The effect estimate (IRR `r zinb_nb_effects_inapp_alarms[4]`) for the negative binomial component of the model for the number of inappropriate alarms was statistically significantly but highly imprecise (95% CI `r zinb_nb_effects_inapp_alarms[2]` to `r zinb_nb_effects_inapp_alarms[6]`).
 

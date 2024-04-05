@@ -29,7 +29,10 @@ The outcomes in the protocol and final report were reported consistently. We hav
 
 I assume the editor is referring to our statement in the statistical analysis section that, 'We pre-specified in the protocol that a process evaluation of alarm performance over time during the establishment and stability phases would be conducted. The process evaluation will be reported separately.'. Please note that all the actual outcomes included in the protocol (see section 2.9 Outcomes) were reported in the initial version of this paper. In the protocol, there was an additional section titled, 'Process evaluation'. That section was separate to the actual outcomes. To make this clearer, we have added a section in the paper. It reads:
 
-"We initially planned to collect data from four departments that use procedural sedation in the health service in which this study was conducted. Three of these four departments did not participate, because significant challenges associated with workforce shortages arose at the time of data collection and it was decided that staff did not have the capacity to take on participation in research. We pre-specified in the protocol that, in addition to the primary and secondary outcomes, a process evaluation of alarm performance over time during the establishment and stability phases would be conducted. The process evaluation will be reported separately."
+
+### Differences between the protocol and this report
+
+We initially planned to collect data from four departments that use procedural sedation in the health service in which this study was conducted. Three of these four departments did not participate because significant challenges associated with workforce shortages arose at the time of data collection and it was decided that staff did not have the capacity to take on participation in research. We pre-specified in the protocol that, in addition to the primary and secondary outcomes, a process evaluation of alarm performance over time during the establishment and stability phases would be conducted. The process evaluation will be reported separately.
 
 >2. Please see the JAN guidance for reporting abstracts. Remove the detailed stats and write the findings as simple statements without any stats.
 
@@ -39,7 +42,7 @@ We have revised the results section of the abstract. It now reads:
 
 The number of seconds in an alarm state without intervention was higher in the group that enabled the Integrated Pulmonary Index compared to the group that disabled this feature but this difference did not reach statistical significance. Likewise, the difference between groups for the total alarm duration, total number of alarms and the total number of appropriate alarms was not statistically significant. The number of inappropriate alarms was higher in the group that enabled the Integrated Pulmonary Index, but this estimate was highly imprecise. There was no difference in the odds of an adverse event (measured by the Tracking and Reporting Outcomes of Procedural Sedation tool) occurring between groups. Desaturation events were uncommon and brief in both groups but area under the SpO~2~ 90% desaturation curve scores were lower for the group that enabled the Integrated Pulmonary Index.
 
-### Reviewer 1
+### Reviewer 1 {.break}
 
 >I appreciate the opportunity to review this study, which focuses on respiratory depression during procedural sedation. I have several concerns for the authors.
 
@@ -73,7 +76,7 @@ One component of the tool we used to measure sedation-related adverse events (th
 
 *Response*
 
->In the discussion we noted that results may differ if a larger dose of sedative and analgesic medication was administered, but have revised the statement to include references to previous work by the reviewer's team as additional justification that respiratory depression rates may be lower in this study due to the sedation protocol used. The revised statement reads: 
+In the discussion we noted that results may differ if a larger dose of sedative and analgesic medication was administered, but have revised the statement to include references to previous work by the reviewer's team as additional justification that respiratory depression rates may be lower in this study due to the sedation protocol used. The revised statement reads: 
 
 "It is unclear if different results would be observed if there was a larger dose of sedative and analgesic medication administered, which likely would also be associated with a higher number of alarms due to the increased risk of respiratory depression that has been observed in previous studies (Li et al., 2023; Wang, Shen, et al., 2023; Wang, Sheng, et al., 2023)."
 
@@ -94,9 +97,9 @@ We changed the results section to indicate that the primary outcome was not stat
 
 I do not believe that footnotes are permitted for this journal. The following additional explanation about the interpretation of the coefficients (we presented as odds ratio and incidence rate ratio) from the negative binomial and zero components of the models has been added to the statistical analysis section:
 
-"The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with (reported as odds ratio), and a negative binomial model for the count process (reported as incidence rate ratio). This analysis was conducted using the `mixed_model` function from the GLMMadaptive R package [@GLMMadaptive]. Odds ratios produced by the zero part tell us about the factors influencing whether a patient had an alarm at all, with an odds ratio above 1 for this analysis meaning that enabling the IPI increases the likelihood of having no alarms at all. For the count part of the model, an incidence rate ratio greater than 1 indicates that enabling the IPI increases the number of alarms."
+"The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with (reported as odds ratio), and a negative binomial model for the count process (reported as incidence rate ratio). This analysis was conducted using the `mixed_model` function from the GLMMadaptive R package (Rizopoulos, 2023). Odds ratios produced by the zero part tell us about the factors influencing whether a patient had an alarm at all, with an odds ratio above 1 for this analysis meaning that enabling the IPI increases the likelihood of having no alarms at all. For the count part of the model, an incidence rate ratio greater than 1 indicates that enabling the IPI increases the number of alarms."
 
-For Figure 1, I cannot understand the meaning of ‘Received allocated intervention (n=6, cluster size’ in the box for ‘Allocated to Control’.
+>For Figure 1, I cannot understand the meaning of ‘Received allocated intervention (n=6, cluster size’ in the box for ‘Allocated to Control’.
 
 *Response*
 
