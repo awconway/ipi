@@ -7,7 +7,7 @@ format:
         css: ["css/all.css"]
 author:
   - name: Aaron Conway
-    affiliations: Peter Munk Cardiac Centre, UHN & University of Toronto
+    affiliations: QUT School of Nursing, Peter Munk Cardiac Centre, UHN & University of Toronto
   - name: Mohammad Goudarzi Rad
     affiliations: Peter Munk Cardiac Centre, UHN & University of Toronto
   - name: Sebastian Mafeld
@@ -52,11 +52,25 @@ options(digits=2)
 
 ## Using capnography for respiratory monitoring during sedation can provide an extra layer of safety  {.center}
 
+## Normal capnography waveform {.center}
+
+![](capno-norm.gif)
+
+## Apnea {.center}
+
+![](capno-apnea.gif)
+
 ## The Canadian Anesthesiologists’ Society’s position statement recommends that capnography should be available wherever moderate or deep sedation is used. {.center}
 
 ## CAS guidelines do not provide specific recommendations for *how* capnography should be implemented for nurse-administered sedation {.center}
 
 # Alarm management <i class="fad fa-bell"></i> {background-color="#2196f3"}
+
+## Alarm fatigue is a well-recognized problem in healthcare { style="text-align: center"}
+
+- over-abundance of false or un-actionable alarms
+- desensitises healthcare providers to alarms
+- changes response patterns and alters alarm management (e.g. silencing or switching off alarms)
 
 ## Capnography is a very sensitive device so we need to ensure the alarm conditions set will not disrupt procedures unnecessarily {.center}
 
@@ -78,6 +92,10 @@ Index of physiological parameters related to the assessment of respiratory funct
 ![](figure2.png)
 :::
 ::::
+
+##  Integrated pulmonary index
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YHPU2uBKlz0?si=3qXsIor_Aczdet-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Simplifies the interpretation of respiratory monitoring by assigning clinical responses for given scores {.center}
 
@@ -177,10 +195,6 @@ Audit and [feedback](https://capnofeedback.gatsbyjs.io) process to evaluate the 
 
 ### Number of seconds in an alert condition state without an intervention being applied
 
-- Scored as zero if a patient did not have any alarms during the procedure
-- Used a mixed effects model that accounted for the large number of zero scores, being the zero-inflated negative binomial mixed effects model
-- The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with, and a negative binomial model for the count process
-- Fixed effect in the model was the randomization and the random effect was the cluster
 
 ## Secondary outcomes {.smaller}
 
@@ -190,6 +204,15 @@ Audit and [feedback](https://capnofeedback.gatsbyjs.io) process to evaluate the 
 - Total duration of alert conditions (defined as the total time that an alert condition was active inclusive of the time to an intervention and the time until the alert conditions are resolved).
 - TROOPS adverse sedation events.
 - Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold.
+
+## Statistical analysis {.smaller}
+
+- An intention-to-treat approach was used
+- Primary outcome was a *count* of the number of seconds in an alarm 'state' over a procedure so we used a mixed effects negative binomial model (incidence rate ratio)
+- Outcomes scored as zero if a patient did not have any alarms during the procedure
+- Used models that accounted for the large number of zero scores
+- 'zero-inflated' negative binomial model (for count outcomes) and hurdle lognormal model (for continuous outcomes)
+- Fixed effect in the model was the randomization and the random effect was the cluster
 
 
 # Results <i class="fad fa-chart-scatter"></i> {background-color="#2196f3"}
@@ -241,6 +264,8 @@ gt(df) |>
 ### No difference between groups (IRR `r zinb_nb_effects[4]`; 95% CI `r zinb_nb_effects[2]` to `r zinb_nb_effects[6]`)
 
 ![](primary.svg){.quarto-figure-center}
+
+- Imprecise (incidence rate of enabled could be as high as three times that of the disabled group) 
 
 ::: {.center}
 
@@ -297,19 +322,27 @@ flextable::flextable(df) |>
 
 ### Therefore, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index help to lower the threshold for intervention by nurses.
 
+## Limitations
+
+- Imprecision is a concern, arising from the fact that:
+  - a smaller number of clusters were included than we estimated for the sample size calculation due to the restricted number of sites available at the time of data collection.
+  - The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.
+- The research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.
+
+
 ## Although we didn't specify thresholds in the protocol, nurses did not change alarm settings during the evaluation period. {.center}
 
 ### In effect, this was a comparison of IPI at a threshold of 4 versus no IPI. It is possible that results would differ at a lower IPI threshold.
 
-## Although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve {.center}
+<!-- ## Although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve {.center}
 
-### It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management
+### It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management -->
 
 ## The total doses of sedative and analgesic medication for many patients was small (median 1mg midazolam and 50-75mcg fentanyl) {.center}
 
 ###  May not be relevant to situations where higher doses of sedative and analgesic medication are used (higher number of alarms)
 
-## The cluster design (by nurses) was a very efficient way to conduct this study {.center}
+## The cluster design (by nurses) was an efficient way to conduct this study {.center}
 
 ### Only possible due to the hybrid implementation-effectiveness design
 
@@ -339,14 +372,6 @@ flextable::flextable(df) |>
 </li>
 </ul>
 
-
-
-## Limitations
-
-- Imprecision may be a concern, arising from the fact that:
-  - a smaller number of clusters were included than we estimated for the sample size calculation due to the restricted number of sites available at the time of data collection.
-  - The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.
-- The research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.
 
 # Conclusion <i class="fad fa-clipboard-check"></i> {background-color="#2196f3"}
 

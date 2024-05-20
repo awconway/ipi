@@ -14,7 +14,7 @@
   <meta name="author" content="Mohammad Goudarzi Rad">
   <meta name="author" content="Sebastian Mafeld">
   <meta name="author" content="Matteo Parotto">
-  <meta name="dcterms.date" content="2023-07-20">
+  <meta name="dcterms.date" content="2024-05-20">
   <title>Integrated Pulmonary Index during procedural sedation and analgesia</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -341,7 +341,7 @@
 Aaron Conway 
 </div>
         <p class="quarto-title-affiliation">
-            Peter Munk Cardiac Centre, UHN &amp; University of Toronto
+            QUT School of Nursing, Peter Munk Cardiac Centre, UHN &amp; University of Toronto
           </p>
     </div>
 <div class="quarto-title-author">
@@ -370,7 +370,7 @@ Matteo Parotto
     </div>
 </div>
 
-  <p class="date">July 20, 2023</p>
+  <p class="date">May 20, 2024</p>
 </section>
 <section id="procedural-sedation-is-very-safe-and-highly-effective" class="slide level2 center">
 <h2>Procedural sedation is very safe and highly effective</h2>
@@ -379,6 +379,14 @@ Matteo Parotto
 <section id="using-capnography-for-respiratory-monitoring-during-sedation-can-provide-an-extra-layer-of-safety" class="slide level2 center">
 <h2>Using capnography for respiratory monitoring during sedation can provide an extra layer of safety</h2>
 </section>
+<section id="normal-capnography-waveform" class="slide level2 center">
+<h2>Normal capnography waveform</h2>
+
+<img data-src="capno-norm.gif" class="r-stretch"></section>
+<section id="apnea" class="slide level2 center">
+<h2>Apnea</h2>
+
+<img data-src="capno-apnea.gif" class="r-stretch"></section>
 <section id="the-canadian-anesthesiologists-societys-position-statement-recommends-that-capnography-should-be-available-wherever-moderate-or-deep-sedation-is-used." class="slide level2 center">
 <h2>The Canadian Anesthesiologists’ Society’s position statement recommends that capnography should be available wherever moderate or deep sedation is used.</h2>
 </section>
@@ -389,6 +397,14 @@ Matteo Parotto
 <section id="alarm-management" class="title-slide slide level1 center" data-background-color="#2196f3">
 <h1>Alarm management <i class="fad fa-bell"></i></h1>
 
+</section>
+<section id="alarm-fatigue-is-a-well-recognized-problem-in-healthcare" class="slide level2" style="text-align: center">
+<h2>Alarm fatigue is a well-recognized problem in healthcare</h2>
+<ul>
+<li>over-abundance of false or un-actionable alarms</li>
+<li>desensitises healthcare providers to alarms</li>
+<li>changes response patterns and alters alarm management (e.g.&nbsp;silencing or switching off alarms)</li>
+</ul>
 </section>
 <section id="capnography-is-a-very-sensitive-device-so-we-need-to-ensure-the-alarm-conditions-set-will-not-disrupt-procedures-unnecessarily" class="slide level2 center">
 <h2>Capnography is a very sensitive device so we need to ensure the alarm conditions set will not disrupt procedures unnecessarily</h2>
@@ -413,6 +429,11 @@ Matteo Parotto
 <p><img data-src="figure2.png"></p>
 </div>
 </div>
+</section>
+<section id="integrated-pulmonary-index-1" class="slide level2">
+<h2>Integrated pulmonary index</h2>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/YHPU2uBKlz0?si=3qXsIor_Aczdet-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
 </section>
 <section id="simplifies-the-interpretation-of-respiratory-monitoring-by-assigning-clinical-responses-for-given-scores" class="slide level2 center">
 <h2>Simplifies the interpretation of respiratory monitoring by assigning clinical responses for given scores</h2>
@@ -519,12 +540,6 @@ Evaluation
 <section id="primary-outcome" class="slide level2 smaller">
 <h2>Primary outcome</h2>
 <h3 id="number-of-seconds-in-an-alert-condition-state-without-an-intervention-being-applied">Number of seconds in an alert condition state without an intervention being applied</h3>
-<ul>
-<li>Scored as zero if a patient did not have any alarms during the procedure</li>
-<li>Used a mixed effects model that accounted for the large number of zero scores, being the zero-inflated negative binomial mixed effects model</li>
-<li>The two parts of the zero-inflated model we used were a logit model to model which of the two processes the zero outcome was associated with, and a negative binomial model for the count process</li>
-<li>Fixed effect in the model was the randomization and the random effect was the cluster</li>
-</ul>
 </section>
 <section id="secondary-outcomes" class="slide level2 smaller">
 <h2>Secondary outcomes</h2>
@@ -535,6 +550,17 @@ Evaluation
 <li>Total duration of alert conditions (defined as the total time that an alert condition was active inclusive of the time to an intervention and the time until the alert conditions are resolved).</li>
 <li>TROOPS adverse sedation events.</li>
 <li>Area under the curve of oxygen desaturation, calculated by taking the difference between a threshold (SpO2 90%) and current oxygen saturation summed each second while oxygen saturation was below the threshold.</li>
+</ul>
+</section>
+<section id="statistical-analysis" class="slide level2 smaller">
+<h2>Statistical analysis</h2>
+<ul>
+<li>An intention-to-treat approach was used</li>
+<li>Primary outcome was a <em>count</em> of the number of seconds in an alarm ‘state’ over a procedure so we used a mixed effects negative binomial model (incidence rate ratio)</li>
+<li>Outcomes scored as zero if a patient did not have any alarms during the procedure</li>
+<li>Used models that accounted for the large number of zero scores</li>
+<li>‘zero-inflated’ negative binomial model (for count outcomes) and hurdle lognormal model (for continuous outcomes)</li>
+<li>Fixed effect in the model was the randomization and the random effect was the cluster</li>
 </ul>
 </section></section>
 <section>
@@ -551,23 +577,23 @@ Evaluation
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="wfopdxupum" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wfopdxupum table {
+<div id="zanujhlubv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zanujhlubv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wfopdxupum thead, #wfopdxupum tbody, #wfopdxupum tfoot, #wfopdxupum tr, #wfopdxupum td, #wfopdxupum th {
+#zanujhlubv thead, #zanujhlubv tbody, #zanujhlubv tfoot, #zanujhlubv tr, #zanujhlubv td, #zanujhlubv th {
   border-style: none;
 }
 
-#wfopdxupum p {
+#zanujhlubv p {
   margin: 0;
   padding: 0;
 }
 
-#wfopdxupum .gt_table {
+#zanujhlubv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -593,12 +619,12 @@ Evaluation
   border-left-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_caption {
+#zanujhlubv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wfopdxupum .gt_title {
+#zanujhlubv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -610,7 +636,7 @@ Evaluation
   border-bottom-width: 0;
 }
 
-#wfopdxupum .gt_subtitle {
+#zanujhlubv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -622,7 +648,7 @@ Evaluation
   border-top-width: 0;
 }
 
-#wfopdxupum .gt_heading {
+#zanujhlubv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -634,13 +660,13 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_bottom_border {
+#zanujhlubv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_col_headings {
+#zanujhlubv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -655,7 +681,7 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_col_heading {
+#zanujhlubv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -675,7 +701,7 @@ Evaluation
   overflow-x: hidden;
 }
 
-#wfopdxupum .gt_column_spanner_outer {
+#zanujhlubv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -687,15 +713,15 @@ Evaluation
   padding-right: 4px;
 }
 
-#wfopdxupum .gt_column_spanner_outer:first-child {
+#zanujhlubv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wfopdxupum .gt_column_spanner_outer:last-child {
+#zanujhlubv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wfopdxupum .gt_column_spanner {
+#zanujhlubv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -707,11 +733,11 @@ Evaluation
   width: 100%;
 }
 
-#wfopdxupum .gt_spanner_row {
+#zanujhlubv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wfopdxupum .gt_group_heading {
+#zanujhlubv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -737,7 +763,7 @@ Evaluation
   text-align: left;
 }
 
-#wfopdxupum .gt_empty_group_heading {
+#zanujhlubv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -752,15 +778,15 @@ Evaluation
   vertical-align: middle;
 }
 
-#wfopdxupum .gt_from_md > :first-child {
+#zanujhlubv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wfopdxupum .gt_from_md > :last-child {
+#zanujhlubv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wfopdxupum .gt_row {
+#zanujhlubv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -779,7 +805,7 @@ Evaluation
   overflow-x: hidden;
 }
 
-#wfopdxupum .gt_stub {
+#zanujhlubv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -792,7 +818,7 @@ Evaluation
   padding-right: 5px;
 }
 
-#wfopdxupum .gt_stub_row_group {
+#zanujhlubv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -806,15 +832,15 @@ Evaluation
   vertical-align: top;
 }
 
-#wfopdxupum .gt_row_group_first td {
+#zanujhlubv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wfopdxupum .gt_row_group_first th {
+#zanujhlubv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wfopdxupum .gt_summary_row {
+#zanujhlubv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -824,16 +850,16 @@ Evaluation
   padding-right: 5px;
 }
 
-#wfopdxupum .gt_first_summary_row {
+#zanujhlubv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_first_summary_row.thick {
+#zanujhlubv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wfopdxupum .gt_last_summary_row {
+#zanujhlubv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -843,7 +869,7 @@ Evaluation
   border-bottom-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_grand_summary_row {
+#zanujhlubv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -853,7 +879,7 @@ Evaluation
   padding-right: 5px;
 }
 
-#wfopdxupum .gt_first_grand_summary_row {
+#zanujhlubv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -863,7 +889,7 @@ Evaluation
   border-top-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_last_grand_summary_row_top {
+#zanujhlubv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -873,11 +899,11 @@ Evaluation
   border-bottom-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_striped {
+#zanujhlubv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wfopdxupum .gt_table_body {
+#zanujhlubv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -886,7 +912,7 @@ Evaluation
   border-bottom-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_footnotes {
+#zanujhlubv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -900,7 +926,7 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_footnote {
+#zanujhlubv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -909,7 +935,7 @@ Evaluation
   padding-right: 5px;
 }
 
-#wfopdxupum .gt_sourcenotes {
+#zanujhlubv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -923,7 +949,7 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#wfopdxupum .gt_sourcenote {
+#zanujhlubv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -931,63 +957,63 @@ Evaluation
   padding-right: 5px;
 }
 
-#wfopdxupum .gt_left {
+#zanujhlubv .gt_left {
   text-align: left;
 }
 
-#wfopdxupum .gt_center {
+#zanujhlubv .gt_center {
   text-align: center;
 }
 
-#wfopdxupum .gt_right {
+#zanujhlubv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wfopdxupum .gt_font_normal {
+#zanujhlubv .gt_font_normal {
   font-weight: normal;
 }
 
-#wfopdxupum .gt_font_bold {
+#zanujhlubv .gt_font_bold {
   font-weight: bold;
 }
 
-#wfopdxupum .gt_font_italic {
+#zanujhlubv .gt_font_italic {
   font-style: italic;
 }
 
-#wfopdxupum .gt_super {
+#zanujhlubv .gt_super {
   font-size: 65%;
 }
 
-#wfopdxupum .gt_footnote_marks {
+#zanujhlubv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wfopdxupum .gt_asterisk {
+#zanujhlubv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wfopdxupum .gt_indent_1 {
+#zanujhlubv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wfopdxupum .gt_indent_2 {
+#zanujhlubv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wfopdxupum .gt_indent_3 {
+#zanujhlubv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wfopdxupum .gt_indent_4 {
+#zanujhlubv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wfopdxupum .gt_indent_5 {
+#zanujhlubv .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1048,23 +1074,23 @@ Evaluation
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="rjomcdiycn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rjomcdiycn table {
+<div id="wbyfjorpdf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wbyfjorpdf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rjomcdiycn thead, #rjomcdiycn tbody, #rjomcdiycn tfoot, #rjomcdiycn tr, #rjomcdiycn td, #rjomcdiycn th {
+#wbyfjorpdf thead, #wbyfjorpdf tbody, #wbyfjorpdf tfoot, #wbyfjorpdf tr, #wbyfjorpdf td, #wbyfjorpdf th {
   border-style: none;
 }
 
-#rjomcdiycn p {
+#wbyfjorpdf p {
   margin: 0;
   padding: 0;
 }
 
-#rjomcdiycn .gt_table {
+#wbyfjorpdf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1090,12 +1116,12 @@ Evaluation
   border-left-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_caption {
+#wbyfjorpdf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rjomcdiycn .gt_title {
+#wbyfjorpdf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1107,7 +1133,7 @@ Evaluation
   border-bottom-width: 0;
 }
 
-#rjomcdiycn .gt_subtitle {
+#wbyfjorpdf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1119,7 +1145,7 @@ Evaluation
   border-top-width: 0;
 }
 
-#rjomcdiycn .gt_heading {
+#wbyfjorpdf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1131,13 +1157,13 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_bottom_border {
+#wbyfjorpdf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_col_headings {
+#wbyfjorpdf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1152,7 +1178,7 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_col_heading {
+#wbyfjorpdf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1172,7 +1198,7 @@ Evaluation
   overflow-x: hidden;
 }
 
-#rjomcdiycn .gt_column_spanner_outer {
+#wbyfjorpdf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1184,15 +1210,15 @@ Evaluation
   padding-right: 4px;
 }
 
-#rjomcdiycn .gt_column_spanner_outer:first-child {
+#wbyfjorpdf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rjomcdiycn .gt_column_spanner_outer:last-child {
+#wbyfjorpdf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rjomcdiycn .gt_column_spanner {
+#wbyfjorpdf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1204,11 +1230,11 @@ Evaluation
   width: 100%;
 }
 
-#rjomcdiycn .gt_spanner_row {
+#wbyfjorpdf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rjomcdiycn .gt_group_heading {
+#wbyfjorpdf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1234,7 +1260,7 @@ Evaluation
   text-align: left;
 }
 
-#rjomcdiycn .gt_empty_group_heading {
+#wbyfjorpdf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1249,15 +1275,15 @@ Evaluation
   vertical-align: middle;
 }
 
-#rjomcdiycn .gt_from_md > :first-child {
+#wbyfjorpdf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rjomcdiycn .gt_from_md > :last-child {
+#wbyfjorpdf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rjomcdiycn .gt_row {
+#wbyfjorpdf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1276,7 +1302,7 @@ Evaluation
   overflow-x: hidden;
 }
 
-#rjomcdiycn .gt_stub {
+#wbyfjorpdf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1289,7 +1315,7 @@ Evaluation
   padding-right: 5px;
 }
 
-#rjomcdiycn .gt_stub_row_group {
+#wbyfjorpdf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1303,15 +1329,15 @@ Evaluation
   vertical-align: top;
 }
 
-#rjomcdiycn .gt_row_group_first td {
+#wbyfjorpdf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rjomcdiycn .gt_row_group_first th {
+#wbyfjorpdf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rjomcdiycn .gt_summary_row {
+#wbyfjorpdf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1321,16 +1347,16 @@ Evaluation
   padding-right: 5px;
 }
 
-#rjomcdiycn .gt_first_summary_row {
+#wbyfjorpdf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_first_summary_row.thick {
+#wbyfjorpdf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rjomcdiycn .gt_last_summary_row {
+#wbyfjorpdf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1340,7 +1366,7 @@ Evaluation
   border-bottom-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_grand_summary_row {
+#wbyfjorpdf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1350,7 +1376,7 @@ Evaluation
   padding-right: 5px;
 }
 
-#rjomcdiycn .gt_first_grand_summary_row {
+#wbyfjorpdf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1360,7 +1386,7 @@ Evaluation
   border-top-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_last_grand_summary_row_top {
+#wbyfjorpdf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1370,11 +1396,11 @@ Evaluation
   border-bottom-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_striped {
+#wbyfjorpdf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rjomcdiycn .gt_table_body {
+#wbyfjorpdf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1383,7 +1409,7 @@ Evaluation
   border-bottom-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_footnotes {
+#wbyfjorpdf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1397,7 +1423,7 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_footnote {
+#wbyfjorpdf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1406,7 +1432,7 @@ Evaluation
   padding-right: 5px;
 }
 
-#rjomcdiycn .gt_sourcenotes {
+#wbyfjorpdf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1420,7 +1446,7 @@ Evaluation
   border-right-color: #D3D3D3;
 }
 
-#rjomcdiycn .gt_sourcenote {
+#wbyfjorpdf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1428,63 +1454,63 @@ Evaluation
   padding-right: 5px;
 }
 
-#rjomcdiycn .gt_left {
+#wbyfjorpdf .gt_left {
   text-align: left;
 }
 
-#rjomcdiycn .gt_center {
+#wbyfjorpdf .gt_center {
   text-align: center;
 }
 
-#rjomcdiycn .gt_right {
+#wbyfjorpdf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rjomcdiycn .gt_font_normal {
+#wbyfjorpdf .gt_font_normal {
   font-weight: normal;
 }
 
-#rjomcdiycn .gt_font_bold {
+#wbyfjorpdf .gt_font_bold {
   font-weight: bold;
 }
 
-#rjomcdiycn .gt_font_italic {
+#wbyfjorpdf .gt_font_italic {
   font-style: italic;
 }
 
-#rjomcdiycn .gt_super {
+#wbyfjorpdf .gt_super {
   font-size: 65%;
 }
 
-#rjomcdiycn .gt_footnote_marks {
+#wbyfjorpdf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rjomcdiycn .gt_asterisk {
+#wbyfjorpdf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rjomcdiycn .gt_indent_1 {
+#wbyfjorpdf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rjomcdiycn .gt_indent_2 {
+#wbyfjorpdf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rjomcdiycn .gt_indent_3 {
+#wbyfjorpdf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rjomcdiycn .gt_indent_4 {
+#wbyfjorpdf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rjomcdiycn .gt_indent_5 {
+#wbyfjorpdf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1526,21 +1552,24 @@ Evaluation
 </section>
 <section id="primary-outcome-1" class="slide level2">
 <h2>Primary outcome</h2>
-<h3 id="no-difference-between-groups-irr-1.79-95-ci-0.93-to-3.45">No difference between groups (IRR 1.79; 95% CI 0.93 to 3.45)</h3>
+<h3 id="no-difference-between-groups-irr-1.71-95-ci-0.96-to-3.06">No difference between groups (IRR 1.71; 95% CI 0.96 to 3.06)</h3>
 
-<img data-src="primary.svg" class="quarto-figure-center r-stretch"></section>
+<img data-src="primary.svg" class="quarto-figure-center r-stretch"><ul>
+<li>Imprecise (incidence rate of enabled could be as high as three times that of the disabled group)</li>
+</ul>
+</section>
 <section id="alarm-related-secondary-outcomes" class="slide level2 center">
 <h2>Alarm-related secondary outcomes</h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="tabwid"><style>.cl-34fe6b0a{table-layout:auto;}.cl-34f99f08{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-34fba5aa{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-34fba5ab{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-34fba5b4{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-34fbb2b6{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2c0{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2c1{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2c2{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2c3{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2ca{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2cb{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-34fbb2cc{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-34fe6b0a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-34fbb2b6"><p class="cl-34fba5aa"><span class="cl-34f99f08"></span></p></th><th colspan="3" class="cl-34fbb2b6"><p class="cl-34fba5aa"><span class="cl-34f99f08">Negative binomial component</span></p></th><th colspan="3" class="cl-34fbb2b6"><p class="cl-34fba5aa"><span class="cl-34f99f08">Zero component</span></p></th><th class="cl-34fbb2b6"><p class="cl-34fba5aa"><span class="cl-34f99f08"></span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-34fbb2c0"><p class="cl-34fba5ab"><span class="cl-34f99f08">Outcome</span></p></th><th class="cl-34fbb2c1"><p class="cl-34fba5b4"><span class="cl-34f99f08">IRR</span></p></th><th class="cl-34fbb2c0"><p class="cl-34fba5ab"><span class="cl-34f99f08">95% CI</span></p></th><th class="cl-34fbb2c1"><p class="cl-34fba5b4"><span class="cl-34f99f08">p-value</span></p></th><th class="cl-34fbb2c1"><p class="cl-34fba5b4"><span class="cl-34f99f08">OR</span></p></th><th class="cl-34fbb2c0"><p class="cl-34fba5ab"><span class="cl-34f99f08">95% CI</span></p></th><th class="cl-34fbb2c1"><p class="cl-34fba5b4"><span class="cl-34f99f08">p-value</span></p></th><th class="cl-34fbb2c0"><p class="cl-34fba5ab"><span class="cl-34f99f08">ICC</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">Total alarm duration</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">1.77</span></p></td><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">0.96 to 3.27</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.068</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.94</span></p></td><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">0.56 to 1.59</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.83</span></p></td><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">0.02</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">Number of appropriate alarms</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.63</span></p></td><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">0.17 to 2.37</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.495</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.37</span></p></td><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">0.1 to 1.4</span></p></td><td class="cl-34fbb2c3"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.14</span></p></td><td class="cl-34fbb2c2"><p class="cl-34fba5ab"><span class="cl-34f99f08">&lt;0.01</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-34fbb2ca"><p class="cl-34fba5ab"><span class="cl-34f99f08">Number of inappropriate alarms</span></p></td><td class="cl-34fbb2cb"><p class="cl-34fba5b4"><span class="cl-34f99f08">13.13</span></p></td><td class="cl-34fbb2ca"><p class="cl-34fba5ab"><span class="cl-34f99f08">1.4 to 122.95</span></p></td><td class="cl-34fbb2cb"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.024</span></p></td><td class="cl-34fbb2cb"><p class="cl-34fba5b4"><span class="cl-34f99f08">38.04</span></p></td><td class="cl-34fbb2ca"><p class="cl-34fba5ab"><span class="cl-34f99f08">0.07 to 20945.46</span></p></td><td class="cl-34fbb2cb"><p class="cl-34fba5b4"><span class="cl-34f99f08">0.26</span></p></td><td class="cl-34fbb2ca"><p class="cl-34fba5ab"><span class="cl-34f99f08">&lt;0.01</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="8" class="cl-34fbb2cc"><p class="cl-34fba5ab"><span class="cl-34f99f08">OR = Odds ratio; IRR = Incidence rate ratio; ICC = Intra-cluster correlation</span></p></td></tr></tfoot></table></div>
+<div class="tabwid"><style>.cl-219566ce{table-layout:auto;}.cl-21918cfc{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-21933d04{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-21933d0e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-21933d0f{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-219347f4{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-219347f5{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-219347fe{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-219347ff{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-21934800{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-21934808{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-21934809{background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2193480a{background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-219566ce"><thead><tr style="overflow-wrap:break-word;"><th class="cl-219347f4"><p class="cl-21933d04"><span class="cl-21918cfc"></span></p></th><th colspan="3" class="cl-219347f4"><p class="cl-21933d04"><span class="cl-21918cfc">Negative binomial component</span></p></th><th colspan="3" class="cl-219347f4"><p class="cl-21933d04"><span class="cl-21918cfc">Zero component</span></p></th><th class="cl-219347f4"><p class="cl-21933d04"><span class="cl-21918cfc"></span></p></th></tr><tr style="overflow-wrap:break-word;"><th class="cl-219347f5"><p class="cl-21933d0e"><span class="cl-21918cfc">Outcome</span></p></th><th class="cl-219347fe"><p class="cl-21933d0f"><span class="cl-21918cfc">IRR</span></p></th><th class="cl-219347f5"><p class="cl-21933d0e"><span class="cl-21918cfc">95% CI</span></p></th><th class="cl-219347fe"><p class="cl-21933d0f"><span class="cl-21918cfc">p-value</span></p></th><th class="cl-219347fe"><p class="cl-21933d0f"><span class="cl-21918cfc">OR</span></p></th><th class="cl-219347f5"><p class="cl-21933d0e"><span class="cl-21918cfc">95% CI</span></p></th><th class="cl-219347fe"><p class="cl-21933d0f"><span class="cl-21918cfc">p-value</span></p></th><th class="cl-219347f5"><p class="cl-21933d0e"><span class="cl-21918cfc">ICC</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">Total alarm duration</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">1.77</span></p></td><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">0.96 to 3.27</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.068</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.94</span></p></td><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">0.56 to 1.59</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.83</span></p></td><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">0.02</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">Number of appropriate alarms</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.63</span></p></td><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">0.17 to 2.37</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.495</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.37</span></p></td><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">0.1 to 1.4</span></p></td><td class="cl-21934800"><p class="cl-21933d0f"><span class="cl-21918cfc">0.14</span></p></td><td class="cl-219347ff"><p class="cl-21933d0e"><span class="cl-21918cfc">&lt;0.01</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-21934808"><p class="cl-21933d0e"><span class="cl-21918cfc">Number of inappropriate alarms</span></p></td><td class="cl-21934809"><p class="cl-21933d0f"><span class="cl-21918cfc">13.13</span></p></td><td class="cl-21934808"><p class="cl-21933d0e"><span class="cl-21918cfc">1.4 to 122.95</span></p></td><td class="cl-21934809"><p class="cl-21933d0f"><span class="cl-21918cfc">0.024</span></p></td><td class="cl-21934809"><p class="cl-21933d0f"><span class="cl-21918cfc">38.04</span></p></td><td class="cl-21934808"><p class="cl-21933d0e"><span class="cl-21918cfc">0.07 to 20945.51</span></p></td><td class="cl-21934809"><p class="cl-21933d0f"><span class="cl-21918cfc">0.26</span></p></td><td class="cl-21934808"><p class="cl-21933d0e"><span class="cl-21918cfc">&lt;0.01</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="8" class="cl-2193480a"><p class="cl-21933d0e"><span class="cl-21918cfc">OR = Odds ratio; IRR = Incidence rate ratio; ICC = Intra-cluster correlation</span></p></td></tr></tfoot></table></div>
 </div>
 </div>
 </section>
 <section id="area-under-the-spo2-90-curve" class="slide level2">
 <h2>Area under the SpO<sub>2</sub> 90% curve</h2>
-<h3 id="lower-for-the-ipi-enabled-group-𝛽--0.82-95-ci--1.41-to--0.22">Lower for the IPI-enabled group (𝛽 -0.82; 95% CI -1.41 to -0.22)</h3>
+<h3 id="lower-for-the-ipi-enabled-group-𝛽--0.73-95-ci--1.32-to--0.14">Lower for the IPI-enabled group (𝛽 -0.73; 95% CI -1.32 to -0.14)</h3>
 
 <img data-src="spo2.svg" class="quarto-figure-center r-stretch"></section>
 <section id="adverse-events" class="slide level2 smaller">
@@ -1562,20 +1591,30 @@ Evaluation
 <h2>We found that the use of the Integrated Patient Index did not reduce the number of seconds that alarms were triggered without intervention.</h2>
 <h3 id="therefore-results-from-the-study-do-not-indicate-that-integrating-multiple-physiological-parameters-related-to-respiratory-assessment-into-a-single-index-help-to-lower-the-threshold-for-intervention-by-nurses.">Therefore, results from the study do not indicate that integrating multiple physiological parameters related to respiratory assessment into a single index help to lower the threshold for intervention by nurses.</h3>
 </section>
+<section id="limitations" class="slide level2">
+<h2>Limitations</h2>
+<ul>
+<li>Imprecision is a concern, arising from the fact that:
+<ul>
+<li>a smaller number of clusters were included than we estimated for the sample size calculation due to the restricted number of sites available at the time of data collection.</li>
+<li>The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.</li>
+</ul></li>
+<li>The research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.</li>
+</ul>
+</section>
 <section id="although-we-didnt-specify-thresholds-in-the-protocol-nurses-did-not-change-alarm-settings-during-the-evaluation-period." class="slide level2 center">
 <h2>Although we didn’t specify thresholds in the protocol, nurses did not change alarm settings during the evaluation period.</h2>
 <h3 id="in-effect-this-was-a-comparison-of-ipi-at-a-threshold-of-4-versus-no-ipi.-it-is-possible-that-results-would-differ-at-a-lower-ipi-threshold.">In effect, this was a comparison of IPI at a threshold of 4 versus no IPI. It is possible that results would differ at a lower IPI threshold.</h3>
-</section>
-<section id="although-oxygen-desaturation-was-not-common-in-either-group-the-ipi-enabled-group-had-lower-levels-of-the-area-under-the-spo2-desaturation-curve" class="slide level2 center">
-<h2>Although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO<sub>2</sub> desaturation curve</h2>
-<h3 id="it-is-possible-that-the-actions-taken-in-response-to-alarms-in-the-ipi-enabled-group-mediated-the-effect-on-oxygen-saturation-which-potentially-signals-a-safety-benefit-for-using-this-approach-for-capnography-alarm-management">It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management</h3>
+<!-- ## Although oxygen desaturation was not common in either group, the IPI-enabled group had lower levels of the area under the SpO~2~ desaturation curve {.center}
+
+### It is possible that the actions taken in response to alarms in the IPI-enabled group mediated the effect on oxygen saturation, which potentially signals a safety benefit for using this approach for capnography alarm management -->
 </section>
 <section id="the-total-doses-of-sedative-and-analgesic-medication-for-many-patients-was-small-median-1mg-midazolam-and-50-75mcg-fentanyl" class="slide level2 center">
 <h2>The total doses of sedative and analgesic medication for many patients was small (median 1mg midazolam and 50-75mcg fentanyl)</h2>
 <h3 id="may-not-be-relevant-to-situations-where-higher-doses-of-sedative-and-analgesic-medication-are-used-higher-number-of-alarms">May not be relevant to situations where higher doses of sedative and analgesic medication are used (higher number of alarms)</h3>
 </section>
-<section id="the-cluster-design-by-nurses-was-a-very-efficient-way-to-conduct-this-study" class="slide level2 center">
-<h2>The cluster design (by nurses) was a very efficient way to conduct this study</h2>
+<section id="the-cluster-design-by-nurses-was-an-efficient-way-to-conduct-this-study" class="slide level2 center">
+<h2>The cluster design (by nurses) was an efficient way to conduct this study</h2>
 <h3 id="only-possible-due-to-the-hybrid-implementation-effectiveness-design">Only possible due to the hybrid implementation-effectiveness design</h3>
 </section>
 <section id="further-exploratory-analyses-are-possible-with-the-data-collected-in-this-study" class="slide level2 center">
@@ -1590,17 +1629,6 @@ Evaluation
 <li style="list-style-type: none;">
 <span class="fa-li"> <i class="fad fa-chevron-right"> </i> </span> Dataset can be used for external validation of capnography waveform classification algorithms
 </li>
-</ul>
-</section>
-<section id="limitations" class="slide level2">
-<h2>Limitations</h2>
-<ul>
-<li>Imprecision may be a concern, arising from the fact that:
-<ul>
-<li>a smaller number of clusters were included than we estimated for the sample size calculation due to the restricted number of sites available at the time of data collection.</li>
-<li>The intra-cluster correlation for the primary outcome was also higher (0.03) than we estimated for the sample size calculation.</li>
-</ul></li>
-<li>The research assistant performing outcome measurement was not blinded to the allocation of the nurse because it was not practical to obscure the Capnostream monitor from their view without also impeding the nurses own use of the device.</li>
 </ul>
 </section></section>
 <section>
